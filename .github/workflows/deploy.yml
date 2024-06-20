@@ -20,7 +20,7 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
         ssh-config: |
-          Host branighangroup.com
+          Host lim115.truehost.cloud
             Port 1624
 
     - name: Sync files to server
