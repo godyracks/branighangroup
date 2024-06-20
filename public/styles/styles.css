@@ -2541,7 +2541,7 @@ header {
 }
 
 .close-button {
-    color: #aaa;
+    color: rgb(240, 162, 17);
     float: right;
     font-size: 28px;
     font-weight: bold;
