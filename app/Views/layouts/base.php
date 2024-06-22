@@ -206,47 +206,63 @@ defer>
 <div id="login-modal" class="modal">
   <div class="modal-content">
       <span class="close-button">&times;</span>
-      <img src="<?= base_url('/public/images/logo_light.png') ?> alt="Logo" >
+      <img src="<?= base_url('/public/images/logo_light.png')?>" alt="Logo">
    
-      <h2 class="auth-title">Login</h2>
+      <h2 class="auth-title">Log in</h2>
       <form id="login-form" class="auth-form" action="/login" method="post">
           <label for="username" class="auth-label">Username:</label>
-          <input type="text" id="username" name="username" class="input-field" required >
+          <input type="text" id="username" name="username" class="input-field" required>
           <label for="password" class="auth-label">Password:</label>
-          <input type="password" id="password" name="password" class="input-field" required>
+          <div class="password-wrapper">
+              <input type="password" id="password" name="password" class="input-field" maxlength="20" autocomplete="current-password" required>
+              <span class="toggle-password" onclick="togglePasswordVisibility('password', 'togglePassword')">
+                  <i class="material-icons" id="togglePassword">visibility</i>
+              </span>
+          </div>
           <a href="#" class="forgot-password" id="forgot-password-link">Forgot Password?</a>
-          <button type="submit" class="auth-btn">Login</button>
+          <button type="submit" class="auth-btn">Log in</button>
       </form>
       <p>Don't have an account? <a href="#" id="register-link-modal">Register</a></p>
   </div>
 </div>
 <!-- Login Modal End -->
- <div class="toast-container" id="toast-container"></div>
 
- <!-- Register Modal Start -->
- <div id="register-modal" class="modal">
+<!-- Register Modal Start -->
+<div id="register-modal" class="modal">
     <div class="modal-content">
         <span class="close-button">&times;</span>
-        <img src="<?php base_url('public/images/logo_light.png') ?>" alt="Logo" class="modal-logo">
+        <img src="<?= base_url('/public/images/logo_light.png')?>" alt="Logo" class="modal-logo">
         <h2 class="auth-title">Register</h2>
         <form id="register-form" class="auth-form">
             <label for="reg-username" class="auth-label">Username:</label>
             <input type="text" id="reg-username" name="username" class="input-field" required>
 
-            <label for="reg-email-phone" class="auth-label">Email/Phone:</label>
+            <label for="reg-email-phone" class="auth-label">Email:</label>
             <input type="text" id="reg-email-phone" name="email" class="input-field" required>
 
             <label for="reg-password" class="auth-label">Password:</label>
-            <input type="password" id="reg-password" name="password" class="input-field" required>
+            <div class="password-wrapper">
+                <input type="password" id="reg-password" name="password" class="input-field" maxlength="20" autocomplete="new-password" required>
+                <span class="toggle-password" onclick="togglePasswordVisibility('reg-password', 'toggleRegPassword')">
+                    <i class="material-icons" id="toggleRegPassword">visibility</i>
+                </span>
+            </div>
 
             <label for="reg-confirm-password" class="auth-label">Repeat Password:</label>
-            <input type="password" id="reg-confirm-password" name="confirm_password" class="input-field" required>
+            <div class="password-wrapper">
+                <input type="password" id="reg-confirm-password" name="confirm_password" class="input-field" maxlength="20" autocomplete="new-password" required>
+                <span class="toggle-password" onclick="togglePasswordVisibility('reg-confirm-password', 'toggleRegConfirmPassword')">
+                    <i class="material-icons" id="toggleRegConfirmPassword">visibility</i>
+                </span>
+            </div>
 
             <button type="submit" class="auth-btn">Register</button>
         </form>
-        <p>Already have an account? <a href="#" id="login-link-modal">Login</a></p>
+        <p>Already have an account? <a href="#" id="login-link-modal">Log in</a></p>
     </div>
 </div>
+<!-- Register Modal End -->
+<div class="toast-container" id="toast-container"></div>
 
 <script>
 document.getElementById('register-form').addEventListener('submit', function(event) {
@@ -274,6 +290,7 @@ document.getElementById('register-form').addEventListener('submit', function(eve
     });
 });
 </script>
+
 
 <!-- Register Modal End -->
 <!-- Forgot Password Modal -->

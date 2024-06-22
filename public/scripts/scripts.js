@@ -467,6 +467,17 @@ document.getElementById('other').addEventListener('click', function() {
     window.open(tweetUrl, '_blank');
 });
 
-//notifs
+//eye
+function togglePasswordVisibility(passwordId, iconId) {
+    const passwordField = document.getElementById(passwordId);
+    const toggleIcon = document.getElementById(iconId);
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        toggleIcon.textContent = 'visibility_off';
+    } else {
+        passwordField.type = 'password';
+        toggleIcon.textContent = 'visibility';
+    }
+}
 
 

@@ -28,6 +28,7 @@ $routes->match(['get', 'post'], 'login', 'AuthController::login');
 $routes->get('/dashboard', 'DashboardController::index');
 $routes->post('/addhouse', 'DashboardController::createHouse');
 $routes->post('/posthouse', 'DashboardController::posthouse');
+$routes->post('/postblog', 'DashboardController::createBlog');
 $routes->post('/postdesign', 'DashboardController::postdesign');
 $routes->get('profile', 'ProfileController::index'); 
 $routes->get('logout', 'AuthController::logout');

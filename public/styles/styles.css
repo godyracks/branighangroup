@@ -1,16 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Allison&family=Inter:wght@100..900&display=swap');
-/* Add a style for the theme icon */
+
 #theme-icon {
-    font-size: 24px; /* Adjust size as needed */
+    font-size: 24px; 
     position: absolute;
     top: 0;
      left: 0;
     margin-left: auto;
 }
 
-/* Additional styles for your themes remain the same */
-/* Light mode */
+
 :root {
     --body-bg-color: #FFFFFF;
     --body-sec-bg-color:   #f8f9fa;
@@ -30,7 +29,7 @@
     --call-btn: #757575;
 }
 
-/* Dark mode */
+
 [data-theme="dark"] {
     /* --body-bg-color: #041E42; */
     --body-bg-color:  #36454F;
@@ -271,7 +270,7 @@ input {
     background: var(--body-sec-bg-color); /* Use dark mode background color */
     color: var(--text-color); /* Use dark mode text color */
     padding: 20px;
-    z-index: 2;
+    z-index: 5;
    transform: translateX(-100%);
      transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease, box-shadow 0.5s ease;
 }
@@ -958,7 +957,7 @@ margin: 0 auto;
 .filter-title {
     font-size: 20px;
     font-weight: bold;
-    color: var(--color-text);
+    color: var(--text-color);
 }
 
 .budget-buttons {
@@ -969,7 +968,7 @@ margin: 0 auto;
 
 .budget-button {
     background-color: var(--body-bg-color);
-    color: var(--color-text);
+    color: var(--text-color);
     border: 1px solid grey;
     border-radius: 5px;
     padding: 8px 16px;
@@ -1372,7 +1371,7 @@ button, .budget-button{
     .budget-filters2 button {
        background-color: transparent; 
        border:1px solid  #e0e0e0;
-       color:var(--color-text);
+       color:var(--text-color);
        border-radius: 8px;
     }
 
@@ -1463,7 +1462,7 @@ button, .budget-button{
 }
 .page a{
     text-decoration: none;
-     color: var(--color-text);
+     color: var(--text-color);
 }
 
 /* Responsive Design */
@@ -2098,7 +2097,7 @@ button, .budget-button{
         left: 0;
     border: 1px solid #ddd;
     background-color: var(--body-bg-color);
-    color:var(--color-text);
+    color:var(--text-color);
     position: absolute;
     width: 100%;
     max-height: 300px;
@@ -2111,7 +2110,7 @@ button, .budget-button{
     padding: 10px;
     border-bottom: 1px solid #ddd;
     background-color: var(--body-bg-color);
-    color:var(--color-text);
+    color:var(--text-color);
 }
 
 .design-search-result-item img {
@@ -2123,7 +2122,7 @@ button, .budget-button{
 .design-search-result-item .result-info {
     display: flex;
     flex-direction: column;
-     color:var(--color-text);
+     color:var(--text-color);
 }
 
 .design-search-result-item .result-info h4 {
@@ -2195,11 +2194,16 @@ button, .budget-button{
    max-width: 1200px;
     margin: 0 auto;
     padding: 0;
+     position: relative;
+    
 }
 
 header {
     padding: 10px 0;
     height: 50px;
+     position: relative; /* Required for z-index to work */
+    z-index: 3;
+    
 }
 
 .blogsearch-bar {
@@ -2213,6 +2217,8 @@ header {
     margin-top: 20px;
     margin-left: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+     position: relative; /* Ensure input is above content wrapper */
+    z-index: 3;
 }
 
 .blogsearch-bar:focus {
@@ -2224,15 +2230,28 @@ header {
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
     padding: 20px;
+      z-index:1;
 }
 
 .blogleft-column {
     grid-column: span 1;
     max-width: 70%;
+   
 }
+  #searchResultsContainer {
+       position: absolute; /* Ensure it doesn't take up space in the flow */
+    top: 70px; /* Adjust based on your layout */
+    left: 20px; /* Align with the search bar */
+    z-index: 2; /* Ensure it is above other elements */
+    box-shadow: 0 2px 5px var(--secondary-text-color);
+    background-color: white;
+    width: calc(100% - 40px); /* Match the width of the search bar */
+    max-width: 400px;
+  }
 
 .blogright-column {
     grid-column: span 1;
+   
 }
 
 .latest-articles, .top-posts, .social-posts {
@@ -2251,10 +2270,31 @@ header {
     padding-left: 20px;
 }
 
+.latest-articles ul li{
+    padding-bottom:20px;
+}
+
+
+/* CSS for spinning animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .refresh-icon {
     cursor: pointer;
-    color:var(--color-text);
+    color:var(--text-color);
+    transition: transform 0.3s ease; /* Smooth transition */
 }
+
+.refreshing {
+    animation: spin 1s linear infinite; /* Start spinning animation */
+}
+
 .top-posts {
     margin-bottom: 20px;
 }
@@ -2332,7 +2372,6 @@ header {
 }
 
 
-
 .article-cards {
     display: flex;
     flex-wrap: wrap;
@@ -2341,6 +2380,7 @@ header {
 }
 
 .article-card {
+    position: relative; /* Ensure relative positioning */
     width: 48%;
     margin-bottom: 20px;
     background-color: var(--body-sec-bg-color);
@@ -2350,7 +2390,6 @@ header {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     height: 400px; /* Fixed height for the content part */
 }
 
@@ -2359,17 +2398,36 @@ header {
     max-width: 100%;
     height: 50%; /* Takes 50% of the card height */
     border-radius: 8px 8px 0 0;
+     object-fit: cover; 
+    object-position: top; 
+    
 }
 
-.article-card h3, .article-card p {
+.article-card h3 {
+     text-align: left;
     padding: 0 10px;
     margin: 10px 0;
+    font-size: 1em; /* Adjusted font size */
+}
+
+.article-info {
     flex: 1;
+    padding: 0 10px;
+    text-align: left; /* Aligns text to the left */
+}
+
+ .author, .published-date {
+   font-size: 0.5em; 
+}
+.article-info, .post-content {
+    margin: 5px 0;
+    font-size: 0.9em; /* Adjusted font size */
 }
 
 .full-article-button {
-    align-self: flex-end;
-    margin: 10px;
+    position: absolute; /* Position absolutely within the article card */
+    bottom: 10px; /* 10px from the bottom */
+    right: 10px; /* 10px from the right */
     padding: 8px 16px;
     background-color: orange;
     color: white;
@@ -2381,6 +2439,7 @@ header {
 .full-article-button:hover {
     background-color: #e69500;
 }
+
 
 .blog-pagination {
     display: flex;
@@ -2528,20 +2587,38 @@ header {
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: var(--body-bg-color);
     margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
     max-width: 400px;
-    text-align: center;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     background-color: var(--body-bg-color); 
     box-shadow: 0 2px 5px var(--secondary-text-color);
+ box-sizing: border-box;
+}
+
+
+
+.modal-content img{
+   max-width: 200px;
+   height: auto;
+ 
+   display: block; /* Ensure the image behaves as a block-level element */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+.modal-content a{
+    margin-left:auto;
+    color: var(--text-color); 
+    font-weight: bold; 
+  font-size: 12px; 
 }
 
 .close-button {
-    color: rgb(184, 123, 10);
+    color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -2554,39 +2631,64 @@ header {
     cursor: pointer;
 }
 
-.modal-logo {
-    width: 100px;
-    margin-bottom: 20px;
-}
 
+.auth-title{
+    text-align: center;
+}
 .auth-form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align:left;
 }
-.auth-form, input{
- border-radius: 12px;
- margin-bottom: 10px;
- width: 90%;
- border: none;
-
-}
-
-.auth-btn{
-    border-radius: 12px;
-    background-color: var(--bullets-buttons-color);
-    color: var(--text-color);
-    border: none;
-    width: 90%;
-height: 30px;
-}
-
 .auth-label {
-    margin: 10px 0 5px;
-    color: var(--text-color);
-    align-items: flex-start;
-    font-size: 14px;
+  margin-right:auto;
+  text-align: left;
+  margin-bottom: 5px; 
+  font-weight: bold; 
+  font-size: 14px; 
 }
+.input-field {
+  padding: 10px; 
+  box-sizing: border-box; 
+   border-radius: 12px;
+ margin-bottom: 10px;
+ width: 80%;
+ border: none;
+}
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+ border: none;
+ padding: 10px; 
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-right:10px;
+    cursor: pointer;
+  }
+
+.auth-btn {
+  width: 100%; 
+  padding: 10px; 
+  background-color: var(--btn-color);
+  color: var(--text2-color); 
+  border: none; 
+  cursor: pointer; 
+    border-radius:12px;  
+    height: 50px;
+}
+.auth-btn:hover {
+  background-color: #45a049; 
+}
+
+
+
 
 .auth-title{
     margin-bottom: 20px;
@@ -2989,9 +3091,8 @@ height: 30px;
     .sell-house-form {
         margin: 0 auto;
         padding: 20px;
-        /* background-color: #f9f9f9; */
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      
+   
     }
     .sell-house-form h2 {
         text-align: center;
@@ -3116,7 +3217,7 @@ height: 30px;
       
       .faqs-title {
         text-align: center;
-        color: var(--color-text);
+        color: var(---text-color);
       }
       
       .faq {
@@ -3131,7 +3232,7 @@ height: 30px;
         width: 100%;
         text-align: left;
         cursor: pointer;
-         color: var(--color-text);;
+         color: var(--text-color);;
       }
       
       .question:hover {

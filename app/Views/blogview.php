@@ -25,30 +25,18 @@
             <section class="top-posts">
                 <h2>Top Posts</h2>
                 <ol class="top-posts-list">
+                    <?php foreach ($posts as $post): ?>
                     <li>
-                        <div class="post-number">1</div>
+                        <div class="post-number"><?= esc($post['blog_id']); ?></div>
                         <div class="post-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                            <span class="topic-details">Real Estate Mar 12 2024</span>
+                            <p><?= esc($post['content']); ?></p>
+                            <span class="topic-details"><?= esc($post['category']); ?> <?= date('M d Y', strtotime($post['created_at'])); ?></span>
                         </div>
                     </li>
-                    <li>
-                        <div class="post-number">2</div>
-                        <div class="post-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                            <span class="topic-details">Real Estate Mar 12 2024</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="post-number">3</div>
-                        <div class="post-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                            <span class="topic-details">Real Estate Mar 12 2024</span>
-                        </div>
-                    </li>
-                    <!-- Add more list items as needed -->
+                    <?php endforeach; ?>
                 </ol>
             </section>
+
 
 
 
@@ -71,38 +59,15 @@
         </div>
 
         <div class="blogright-column">
-            <section class="article-cards">
+        <section class="article-cards">
+                <?php foreach ($posts as $post): ?>
                 <div class="article-card">
-                    <img src="<?= base_url('public/images/arcdsgnbg.jpg') ?>" alt="Article 1">
-                    <h3>Article 1 Title</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
+                    <img src="<?= base_url('public/images/isiolo_hse.jpg') ?>" alt="<?= esc($post['title']); ?>">
+                    <h3><?= esc($post['title']); ?></h3>
+                    <p><?= esc($post['content']); ?></p>
                     <a href="#" class="full-article-button">Full Article</a>
                 </div>
-                <div class="article-card">
-                    <img src="<?= base_url('public/images/arcdsgnbg.jpg') ?>" alt="Article 1">
-                    <h3>Article 1 Title</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
-                    <a href="#" class="full-article-button">Full Article</a>
-                </div>
-                <div class="article-card">
-                    <img src="<?= base_url('public/images/arcdsgnbg.jpg') ?>" alt="Article 1">
-                    <h3>Article 1 Title</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
-                    <a href="#" class="full-article-button">Full Article</a>
-                </div>
-                <div class="article-card">
-                    <img src="<?= base_url('public/images/arcdsgnbg.jpg') ?>" alt="Article 1">
-                    <h3>Article 1 Title</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
-                    <a href="#" class="full-article-button">Full Article</a>
-                </div>
-                <div class="article-card">
-                    <img src="<?= base_url('public/images/arcdsgnbg.jpg') ?>" alt="Article 2">
-                    <h3>Article 2 Title</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod .</p>
-                    <a href="#" class="full-article-button">Full Article</a>
-                </div>
-                <!-- Add more articles as needed -->
+                <?php endforeach; ?>
             </section>
 
             <section class="blog-pagination">

@@ -2,10 +2,20 @@
 
 namespace App\Controllers;
 
-class BlogController extends BaseController
+use App\Models\BlogModel;
+use CodeIgniter\Controller;
+
+class BlogController extends Controller
 {
-    public function index(): string
+    public function index()
     {
-        return view('blogview');
+        // Load the model
+        $model = new BlogModel();
+
+        // Fetch all blog posts from the database
+        $data['posts'] = $model->getAllPosts();
+
+        // Pass the data to the view
+        return view('blogview', $data);
     }
 }

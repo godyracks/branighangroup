@@ -9,7 +9,9 @@
    <ul id="dashboard-tabs">
     <li><a href="#" data-tab="add-house">Add House</a></li>
     <li><a href="#" data-tab="add-design">Add Design</a></li>
-    <li><a href="#" data-tab="list-houses">List Houses</a></li>
+    <li><a href="#" data-tab="create-blog">Create Blog</a></li>
+    <li><a href="#" data-tab="list-houses">Lists</a></li>
+   
 </ul>
     
   <div id="add-house" class="tab-content"> <h2>Add a New House</h2>
@@ -144,10 +146,48 @@
 </div>
 
 
+<div id="create-blog" class="tab-content" style="display: none;">
+    <!-- Form for creating a new blog post -->
+    <h2>Create a New Blog Post</h2>
+    <form action="<?= base_url('/postblog') ?>" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="author_name">Author Name:</label>
+            <input type="text" id="author_name" name="author_name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" class="form-control" rows="6" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="published_date">Published Date:</label>
+            <input type="date" id="published_date" name="published_date" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="article_image">Article Image:</label>
+            <input type="file" id="article_image" name="article_image" class="form-control-file" accept="image/*" required>
+            <small class="form-text text-muted">Max 2MB (jpg, jpeg, png)</small>
+        </div>
+        <div class="form-group">
+            <label for="tags">Tags:</label>
+            <input type="text" id="tags" name="tags" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Create Blog</button>
+    </form>
+</div>
+
 <div id="list-houses" class="tab-content" style="display: none;">
     <h2>List of Houses</h2>
     <!-- Placeholder for listing houses -->
 </div>
+
 
  <script>
  document.addEventListener('DOMContentLoaded', function() {
