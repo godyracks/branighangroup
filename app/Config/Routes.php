@@ -36,3 +36,6 @@ $routes->get('profile', 'ProfileController::index');
 $routes->get('logout', 'AuthController::logout');
 $routes->get('/sellyourhouse', 'SellHouseController::index');
 $routes->post('/sellhouse', 'SellHouseController::sellsubmit');
+$routes->get('/google-login', 'GoogleAuthController::login');
+$routes->get('/google-callback', 'GoogleAuthController::callback');
+
