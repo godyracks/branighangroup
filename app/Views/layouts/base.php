@@ -209,6 +209,8 @@ defer>
       <img src="<?= base_url('/public/images/logo_light.png')?>" alt="Logo">
    
       <h2 class="auth-title">Log in</h2>
+       <!-- Google Sign-In Button -->
+       <button class="google-btn">Continue with Google</button>
       <form id="login-form" class="auth-form" action="/login" method="post">
           <label for="username" class="auth-label">Username:</label>
           <input type="text" id="username" name="username" class="input-field" required>
@@ -233,6 +235,8 @@ defer>
         <span class="close-button">&times;</span>
         <img src="<?= base_url('/public/images/logo_light.png')?>" alt="Logo" class="modal-logo">
         <h2 class="auth-title">Register</h2>
+         <!-- Google Sign-In Button -->
+         <button class="google-btn">Continue with Google</button>
         <form id="register-form" class="auth-form">
             <label for="reg-username" class="auth-label">Username:</label>
             <input type="text" id="reg-username" name="username" class="input-field" required>

@@ -6,12 +6,11 @@ use CodeIgniter\Model;
 
 class BlogModel extends Model
 {
-    protected $table      = 'blog';
+    protected $table = 'blog';
     protected $primaryKey = 'blog_id';
     
     protected $useAutoIncrement = true;
-
-    protected $returnType     = 'array';
+    protected $returnType = 'array';
     protected $useSoftDeletes = false;
 
     protected $allowedFields = [
@@ -19,20 +18,20 @@ class BlogModel extends Model
         'title', 
         'content', 
         'article_image', 
-        'published_date', 
         'tags', 
-        'category'
+        'category',
+        'created_at',
+        'updated_at',
     ];
 
     protected $useTimestamps = true;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = '';  // Leave empty since soft deletes are not used
+    protected $dateFormat = 'datetime';
+    protected $createdField = 'created_at';
+    protected $updatedField = 'updated_at';
 
-    protected $validationRules    = [];
+    protected $validationRules = [];
     protected $validationMessages = [];
-    protected $skipValidation     = false;
+    protected $skipValidation = false;
 
     // Method to get all posts
     public function getAllPosts()
@@ -62,5 +61,26 @@ class BlogModel extends Model
     public function deletePost($id)
     {
         return $this->delete($id);
+    }
+
+    // Method to get the top 5 posts based on created_at in descending order
+   public function getTopPosts()
+{
+    return $this->orderBy('RAND()')->limit(5)->findAll();
+}
+
+
+    // Method to get the top 4 latest articles
+    public function getLatestArticles()
+    {
+        return $this->orderBy('created_at', 'DESC')->findAll(4);
+    }
+    
+    public function searchPosts($query)
+    {
+        // Example: perform search in the 'title' or 'content' fields
+        return $this->like('title', $query)
+                    ->orWhere('content', $query)
+                    ->findAll();
     }
 }
