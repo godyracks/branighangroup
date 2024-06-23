@@ -231,42 +231,43 @@ class DashboardController extends Controller
         return view('bloglist', ['blogs' => $blogs]);
     }
 
-    public function createBlog()
-    {
-        helper(['form', 'url']);
+   public function createBlog()
+{
+    helper(['form', 'url']);
 
-        if ($this->request->getMethod() === 'post' && $this->validate([
-                'author_name' => 'required',
-                'title' => 'required',
-                'content' => 'required',
-                'published_date' => 'required',
-                'article_image' => 'uploaded[article_image]|max_size[article_image,2048]|ext_in[article_image,jpg,jpeg,png]',
-            ])) {
-            // Handle the file upload
-            $image = $this->request->getFile('article_image');
-            $imageUrl = '';
-            if ($image->isValid() && !$image->hasMoved()) {
-                $newName = $image->getRandomName();
-                $uploadPath = ROOTPATH . 'public/images/blogs/';
-                $image->move($uploadPath, $newName);
-                $imageUrl = '/images/blogs/' . $newName;
-            }
-
-            $data = [
-                'author_name' => $this->request->getPost('author_name'),
-                'title' => $this->request->getPost('title'),
-                'content' => $this->request->getPost('content'),
-                'published_date' => $this->request->getPost('published_date'),
-                'article_image' => $imageUrl,
-                'tags' => $this->request->getPost('tags'),
-                'category' => $this->request->getPost('category'),
-            ];
-            $this->blogModel->createPost($data);
-            return redirect()->to('/dashboard/getBlogs')->with('message', 'Blog post created successfully!');
-        } else {
-            return view('createblog');
+    if ($this->request->getMethod() === 'post' && $this->validate([
+            'author_name' => 'required',
+            'title' => 'required',
+            'content' => 'required',
+            'article_image' => 'uploaded[article_image]|max_size[article_image,2048]|ext_in[article_image,jpg,jpeg,png]',
+        ])) {
+        // Handle the file upload
+        $image = $this->request->getFile('article_image');
+        $imageUrl = '';
+        if ($image->isValid() && !$image->hasMoved()) {
+            $newName = $image->getRandomName();
+            $uploadPath = ROOTPATH . 'public/images/blogs/';
+            $image->move($uploadPath, $newName);
+            $imageUrl = '/images/blogs/' . $newName;
         }
+
+        $data = [
+            'author_name' => $this->request->getPost('author_name'),
+            'title' => $this->request->getPost('title'),
+            'content' => $this->request->getPost('content'),
+            'article_image' => $imageUrl,
+            'tags' => $this->request->getPost('tags'),
+            'category' => $this->request->getPost('category'),
+            'created_at' => date('Y-m-d H:i:s'), // Add current timestamp
+            'updated_at' => date('Y-m-d H:i:s'), // Add current timestamp
+        ];
+        $this->blogModel->createPost($data);
+        return redirect()->to('/dashboard')->with('message', 'Blog post created successfully!');
+    } else {
+        return view('createblog');
     }
+}
+
 
     public function editBlog($id)
     {

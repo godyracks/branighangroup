@@ -126,9 +126,3 @@ nb-configuration.xml
 /phpunit*.xml
 /.phpunit.*.cache
 
-# CodeIgniter Configurations (specific files)
-app/Config/Database.php
-app/Config/App.php
-
-# .htaccess files
-**/.htaccess

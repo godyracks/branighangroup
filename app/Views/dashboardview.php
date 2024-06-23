@@ -163,10 +163,6 @@
             <textarea id="content" name="content" class="form-control" rows="6" required></textarea>
         </div>
         <div class="form-group">
-            <label for="published_date">Published Date:</label>
-            <input type="date" id="published_date" name="published_date" class="form-control" required>
-        </div>
-        <div class="form-group">
             <label for="article_image">Article Image:</label>
             <input type="file" id="article_image" name="article_image" class="form-control-file" accept="image/*" required>
             <small class="form-text text-muted">Max 2MB (jpg, jpeg, png)</small>
@@ -182,6 +178,7 @@
         <button type="submit" class="btn btn-primary">Create Blog</button>
     </form>
 </div>
+
 
 <div id="list-houses" class="tab-content" style="display: none;">
     <h2>List of Houses</h2>

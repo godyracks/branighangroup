@@ -7,6 +7,8 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/blog', 'BlogController::index');
+$routes->get('blog/latest_articles', 'BlogController::latestArticles');
+$routes->get('blog/search', 'BlogController::search');
 $routes->get('/designs', 'DesignController::index');
 $routes->get('/designs/filter', 'DesignController::filter');
 $routes->get('/about', 'AboutController::index');
