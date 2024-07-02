@@ -18,13 +18,13 @@
                     <h3>Properties Sold</h3>
                     <p>45</p>
                 </div>
-                <div class="card">
+                <div class="card card-listing">
                     <h3>Active Listings</h3>
                     <p>105</p>
                 </div>
                 <div class="card">
                     <h3>New Inquiries</h3>
-                    <p>20</p>
+                    <p style="color: rgb(106, 187, 237);">20</p>
                 </div>
             </div>
             <div class="recent-activities">

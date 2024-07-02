@@ -178,14 +178,21 @@ body {
     border: 1px solid rgb(106, 187, 237);
     color: rgb(225, 221, 221);
 }
+.summary-cards .card-listing{
+    background-color: #A7A6BA; 
+    color: rgb(241, 243, 244);
+}
+
 .card h3 {
     font-size: 1.2em;
     margin-bottom: 10px;
+
 }
 
 .card p {
     font-size: 2em;
     margin: 0;
+
 }
 
 .recent-activities {
