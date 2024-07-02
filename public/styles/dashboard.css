@@ -151,7 +151,7 @@ body {
 
 .summary-cards .card-active{
     border: 1px solid palevioletred;
-    background: linear-gradient(to bottom, rgba(255, 182, 193, 0.3), #4B4E53 96%);
+    background: linear-gradient(to bottom, rgba(255, 182, 193, 0.2), #4B4E53 96%);
     padding: 20px;
     text-align: center;
     width: 200px;
@@ -173,7 +173,11 @@ body {
     margin: 0;
     color: rgb(106, 187, 237);
 }
-
+.summary-cards .card-sold {
+    background-color: #4F666A;
+    border: 1px solid rgb(106, 187, 237);
+    color: rgb(225, 221, 221);
+}
 .card h3 {
     font-size: 1.2em;
     margin-bottom: 10px;

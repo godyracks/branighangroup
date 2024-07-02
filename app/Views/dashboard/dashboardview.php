@@ -14,7 +14,7 @@
                     <h3>Total Properties</h3>
                     <p>150</p>
                 </div>
-                <div class="card">
+                <div class="card card-sold">
                     <h3>Properties Sold</h3>
                     <p>45</p>
                 </div>
