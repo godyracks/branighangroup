@@ -65,6 +65,7 @@
                         <label for="description">Description:</label>
                         <textarea  name="description" placeholder="Enter house description" required id="description"></textarea>
                     </div>
+                    <div class="flex-group">
                     <div class="form-group">
                         <label for="price">Price (KES):</label>
                         <input type="number" id="price" name="price" placeholder="Enter price" required>
@@ -85,12 +86,15 @@
                         <label for="bathrooms">Bathrooms:</label>
                         <input type="number" id="bathrooms" name="bathrooms" placeholder="Enter number of bathrooms" required>
                     </div>
+                    </div>
                     <!--<div class="form-group">-->
                     <!--    <label for="square_footage">Square Footage:</label>-->
                     <!--    <input type="number" id="square_footage" name="square_footage" placeholder="Enter square footage" required>-->
                     <!--</div>-->
                 </div>
+                
                 <div class="form-step" id="step-2" style="display: none;">
+                <div class="flex-group">
                     <div class="form-group">
                         <label for="address">Address:</label>
                         <input type="text" id="address" name="address" placeholder="Enter address" required>
@@ -119,6 +123,7 @@
                         <label for="garage_spaces">Garage Spaces:</label>
                         <input type="number" id="garage_spaces" name="garage_spaces" placeholder="Enter number of garage spaces" required>
                     </div>
+                   </div>
                     <div class="form-group">
                         <label for="amenities">Amenities:</label>
                         <input type="text" id="amenities" name="amenities" placeholder="Enter amenities" required>

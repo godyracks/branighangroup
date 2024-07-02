@@ -217,16 +217,18 @@ body {
 
 .timeline li {
     padding: 10px 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #898D86;
 }
 
 .timeline .date {
     font-weight: bold;
     margin-right: 10px;
+    color: #050505;
 }
 
 .timeline .activity {
-    color: #555;
+    color: #BEC3C6;
+    font-size: 0.9rem;
 }
 /* tabs */
 .tabs {
@@ -276,6 +278,27 @@ body {
     display: block;
 }
 
+.tab-content .crud-operations{
+width: auto;
+ margin: 0 auto;
+}
+
+.tab-content .crud-operations button{
+    width: auto;
+    margin: 0 auto;
+    background-color: #5c7180;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 18px;
+    color: #BEC3C6;
+}
+.tab-content .crud-operations button:hover{
+    border: 2px solid rgb(106, 187, 237);
+    background-color: #36454F;
+    box-shadow: 0 0 20px rgba(106, 187, 237, 0.8);
+}
+
+
 /* blog-mngmt */
 /* Add specific styles for the blog management page here */
 .container {
@@ -309,6 +332,14 @@ body {
 .form-container {
     margin-top: 20px;
     display: none;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.flex-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
 }
 
 .form-container form {
@@ -331,7 +362,7 @@ body {
     margin-top: 20px;
     padding: 10px;
     border: none;
-    background-color: #4CAF50;
+    background-color:  #36454F;;
     color: white;
     cursor: pointer;
 }
@@ -494,13 +525,30 @@ body {
 }
 
 .form-group {
-    margin-bottom: 15px;
+    flex: 1 1 calc(50% - 10px); /* 2 items per row on small screens */
+    min-width: 200px;
+    margin-bottom: 10px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #BEC3C6;
+}
+.form-group input, .form-group select {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #5c7180;
+    
 }
 
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+
+@media (min-width: 768px) {
+    .form-group {
+        flex: 1 1 calc(25% - 20px); /* 4 items per row on larger screens */
+    }
 }
 
 input[type="text"],
