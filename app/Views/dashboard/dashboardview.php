@@ -10,7 +10,7 @@
         <div class="tab-content active" id="overview">
             <h2>Overview</h2>
             <div class="summary-cards">
-                <div class="card">
+                <div class="card card-active">
                     <h3>Total Properties</h3>
                     <p>150</p>
                 </div>
