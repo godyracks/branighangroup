@@ -197,12 +197,21 @@ body {
 
 .recent-activities {
     margin-top: 40px;
+    border-radius: 18px;
+    padding: 20px;
 }
 
-/* timeline*/
+.recent-activities:hover {
+  background-color: #464655;;
+  
+}
+
+
+
+
 .timeline {
     list-style: none;
-    padding: 0;
+    padding: 5px;
     margin: 0;
 }
 
