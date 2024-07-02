@@ -27,7 +27,7 @@ $routes->get('houses/filterByAmenities/(:any)', 'HouseController::filterByAmenit
 $routes->match(['get', 'post'], 'register', 'AuthController::register');
 $routes->get('verify-email', 'AuthController::verifyEmail');
 $routes->match(['get', 'post'], 'login', 'AuthController::login');
-$routes->get('/dashboard', 'DashboardController::index');
+//$routes->get('/dashboard', 'DashboardController::index');
 $routes->post('/addhouse', 'DashboardController::createHouse');
 $routes->post('/posthouse', 'DashboardController::posthouse');
 $routes->post('/postblog', 'DashboardController::createBlog');
@@ -39,3 +39,12 @@ $routes->post('/sellhouse', 'SellHouseController::sellsubmit');
 $routes->get('/google-login', 'GoogleAuthController::login');
 $routes->get('/google-callback', 'GoogleAuthController::callback');
 
+
+// dash
+$routes->get('dashboard', 'Dashboard\DashboardController::dashboard');
+$routes->get('dashboard/welcome', 'Dashboard\DashboardController::index');
+$routes->get('dashboard/blog_management', 'Dashboard\BlogController::index');
+$routes->get('dashboard/analytics', 'Dashboard\AnalyticsController::index');
+$routes->get('dashboard/notifications', 'Dashboard\NotificationsController::index');
+$routes->get('dashboard/support', 'Dashboard\SupportController::index');
+$routes->get('dashboard/user_management', 'Dashboard\UserController::index');

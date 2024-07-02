@@ -1,0 +1,525 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+}
+
+.navbar .logo {
+    height: auto;
+    max-width: 200px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.welcome-message {
+  /* Path to your background image */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    position: relative;
+    height: 100vh;
+}
+
+.welcome-message h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.welcome-message p {
+    font-size: 1.2em;
+}
+
+.quick-actions {
+    margin-top: 20px;
+}
+
+.quick-action-btn {
+    background-color: #FFA500;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quick-action-btn:hover {
+    background-color: #FF8C00;
+}
+
+.wave {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background: url('../wave.svg') repeat-x; /* Path to your wave SVG image */
+    background-size: contain;
+    animation: wave-animation 10s linear infinite;
+    bottom: -100px;
+}
+
+@keyframes wave-animation {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 1000px;
+    }
+}
+
+
+
+/* Dashboard */
+.container {
+    padding: 20px;
+}
+
+.overview {
+    margin-top: 20px;
+}
+
+.summary-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.summary-cards .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.recent-activities {
+    margin-top: 40px;
+}
+
+.card h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 2em;
+    margin: 0;
+}
+
+/* timeline*/
+.timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.timeline li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.timeline .date {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.timeline .activity {
+    color: #555;
+}
+/* tabs */
+.tabs {
+    margin-top: 20px;
+}
+
+.tab-header {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ccc;
+}
+
+.tab-link {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.tab-link:hover {
+    background-color: #ddd;
+}
+
+.tab-link.active {
+    background-color: #ccc;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* blog-mngmt */
+/* Add specific styles for the blog management page here */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.blog-management {
+    padding: 20px;
+}
+
+.blog-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.blog-list table, th, td {
+    border: 1px solid #ddd;
+}
+
+.blog-list th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+.blog-list th {
+    background-color: #f2f2f2;
+}
+
+.form-container {
+    margin-top: 20px;
+    display: none;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container label {
+    margin-top: 10px;
+}
+
+.form-container input, .form-container textarea {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-container button {
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #45a049;
+}
+
+
+/* user-management */
+/* Add specific styles for user management page here */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.user-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-list table, th, td {
+    border: 1px solid #ddd;
+}
+
+.user-list th, .user-list td {
+    padding: 8px;
+    text-align: left;
+}
+
+.user-list th {
+    background-color: #f2f2f2;
+}
+
+.user-roles {
+    margin-top: 20px;
+}
+
+.role-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.role {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.role h4 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.role p {
+    margin-top: 5px;
+    font-size: 0.9rem;
+}
+
+.role button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.role button:hover {
+    background-color: #0056b3;
+}
+
+.user-activity {
+    margin-top: 20px;
+}
+
+.activity-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.activity-list li {
+    margin-bottom: 10px;
+}
+
+.activity-list .date {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.activity-list .activity {
+    font-size: 0.9rem;
+}
+/* analytics */
+/* Example styles for analytics page */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.charts, .traffic {
+    margin-top: 20px;
+}
+
+.charts h3, .traffic h3 {
+    margin-top: 0;
+}
+
+#sales-chart {
+    height: 300px; /* Example height for chart container */
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.traffic p {
+    margin-bottom: 5px;
+}
+
+/* notifs */
+/* Example styles for notifications page */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.notification-list {
+    margin-top: 20px;
+}
+
+.notification {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.notification h3 {
+    margin-top: 0;
+}
+
+.notification p {
+    margin-bottom: 5px;
+}
+
+.notification .date {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* support */
+/* Example styles for support page */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.support, .user-feedback {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+/* Responsive styles */
+@media only screen and (max-width: 769px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    .nav-links li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .navbar .logo {
+        max-width: 150px;
+    }
+
+    .dropdown-content {
+        position: static;
+        display: none;
+        background-color: #333;
+        min-width: auto;
+        box-shadow: none;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: none;
+    }
+
+    .dropdown:hover .dropdown-content {
+        position: static;
+        display: block;
+    }
+
+    .dropdown-content a {
+        color: #fff;
+        padding: 10px 15px;
+    }
+}
+
+.image-preview {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+  .preview-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
