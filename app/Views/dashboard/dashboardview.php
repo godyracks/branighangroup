@@ -258,8 +258,8 @@
                         <td>2</td>
                         <td>Design B</td>
                         <td>
-                            <button>Edit</button>
-                            <button>Delete</button>
+                            <button class="action-btn">Edit</button>
+                            <button class="action-btn">Delete</button>
                         </td>
                     </tr>
                 </tbody>

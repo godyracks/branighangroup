@@ -614,6 +614,16 @@ th, td {
     padding: 8px;
     text-align: left;
 }
+th {
+    border-bottom: 2px solid #000; /* Add a thicker bottom border for header */
+}
+
+tr:last-child td {
+    border-bottom: none; /* Remove bottom border for the last row */
+}
+.action-btn {
+    margin-right: 5px;
+}
 
 
 @media (min-width: 768px) {
