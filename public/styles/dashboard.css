@@ -584,6 +584,38 @@ background-color: #dbd7d2;
     background-color: rgba(4, 157, 34, 0.824);
 }
 
+.tab-content .property-list{
+ 
+    margin-top: 40px;
+    border-radius: 18px;
+    padding: 20px;
+}
+
+.property-list:hover {
+  background-color: #464655;;
+  
+}
+
+.tab-content .property-list  h3{
+    color: rgb(74, 169, 229);
+}
+.tab-content .design-list  h3{
+    color: rgb(74, 169, 229);
+}
+
+ table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: none;
+    border-bottom: 1px solid #000; /* Add a bottom border */
+    padding: 8px;
+    text-align: left;
+}
+
+
 @media (min-width: 768px) {
     .form-group {
         flex: 1 1 calc(25% - 20px); /* 4 items per row on larger screens */
@@ -603,14 +635,14 @@ textarea {
 
 button[type="submit"] {
     padding: 10px 20px;
-    background-color: #007bff;
+ 
     color: white;
     border: none;
     cursor: pointer;
 }
 
 button[type="submit"]:hover {
-    background-color: #0056b3;
+   
 }
 /* Responsive styles */
 @media only screen and (max-width: 769px) {
