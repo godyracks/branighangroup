@@ -551,7 +551,38 @@ background-color: #dbd7d2;
     outline: none;
     /* Add additional styling for focus state if needed */
 }
+.form-group .next-button{
+    width: 160px;
+    height: 40px;
+    margin-top: 20px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 18px;
+    
+    background-color: rgb(227, 157, 8);
+}
+.form-group .prev-button{
+    width: 160px;
+    height: 40px;
+    margin-top: 20px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 18px;
+    background-color: rgb(74, 169, 229);
+}
 
+.form-group .submit-button{
+    width: 160px;
+    height: 40px;
+    margin-top: 20px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 18px;
+    background-color: rgba(4, 157, 34, 0.824);
+}
 
 @media (min-width: 768px) {
     .form-group {
