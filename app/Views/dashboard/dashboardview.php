@@ -63,7 +63,7 @@
                     </div>
                     <div class="form-group">
                         <label for="description">Description:</label>
-                        <textarea  name="description" placeholder="Enter house description" required id="description"></textarea>
+                        <textarea  name="description" placeholder="Enter house description"  id="description"></textarea>
                     </div>
                     <div class="flex-group">
                     <div class="form-group">
@@ -111,6 +111,8 @@
                         <label for="zip_code">Zip Code:</label>
                         <input type="text" id="zip_code" name="zip_code" placeholder="Enter zip code" required>
                     </div>
+                    </div>
+                    <div class="flex-group">
                     <div class="form-group">
                         <label for="year_built">Year Built:</label>
                         <input type="number" id="year_built" name="year_built" placeholder="Enter year built" required>
@@ -123,11 +125,8 @@
                         <label for="garage_spaces">Garage Spaces:</label>
                         <input type="number" id="garage_spaces" name="garage_spaces" placeholder="Enter number of garage spaces" required>
                     </div>
-                   </div>
-                    <div class="form-group">
-                        <label for="amenities">Amenities:</label>
-                        <input type="text" id="amenities" name="amenities" placeholder="Enter amenities" required>
-                    </div>
+                
+                   
                     <div class="form-group">
                         <label for="latitude">Latitude:</label>
                         <input type="text" id="latitude" name="latitude" placeholder="Enter latitude" required>
@@ -135,6 +134,11 @@
                     <div class="form-group">
                         <label for="longitude">Longitude:</label>
                         <input type="text" id="longitude" name="longitude" placeholder="Enter longitude" required>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="amenities">Amenities:</label>
+                        <input type="text" id="amenities" name="amenities" placeholder="Enter amenities" required>
                     </div>
                 </div>
                 <div class="form-step" id="step-3" style="display: none;">

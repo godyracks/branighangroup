@@ -20,6 +20,18 @@
       rel="stylesheet"
       href="<?= base_url('/public/styles/dashboard.css') ?>"
     />
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.2.0/classic/ckeditor.js"></script>
+ <style>
+        #container {
+            width: 800px;
+            margin: 20px auto;
+        }
+
+        .ck-editor__editable[role="textbox"] {
+            /* editing area */
+            min-height: 300px;
+        }
+    </style> 
 </head>
 <body>
     <nav class="navbar">
@@ -51,5 +63,14 @@
 
 
     <script src="<?= base_url('/public/scripts/dashboard.js') ?>"></script>
+    <script>
+        ClassicEditor.create(document.querySelector('#description'))
+            .then(editor => {
+                console.log('Editor was initialized', editor);
+            })
+            .catch(error => {
+                console.error('There was an error initializing the editor:', error);
+            });
+    </script>
 </body>
 </html>
