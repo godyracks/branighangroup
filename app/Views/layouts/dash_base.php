@@ -51,10 +51,11 @@
                     <a href="<?= base_url('/dashboard/blog_management') ?>">Blog Management</a>
                     <a href="<?= base_url('/dashboard/user_management') ?>">User Management</a>
                     <a href="<?= base_url('/dashboard/analytics') ?>">Analytics</a>
+                    <a href="<?= base_url('/dashboard/support') ?>">Support</a>
                     <a href="#">Guide</a>
                 </div>
             </li>
-            <li><a href="<?= base_url('/dashboard/support') ?>">Support</a></li>
+            
             <li><a href="<?= base_url('/dashboard/notifications') ?>"><i class="material-icons">notifications</i></a></li>
         </ul>
     </nav>
