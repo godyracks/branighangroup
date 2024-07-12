@@ -54,6 +54,7 @@
 :root {
   --body-bg-color: #ffffff;
   --body-sec-bg-color: #f8f9fa;
+  --side-nav-bg-color:: #f8f9fa;
   --text-color: #000000;
   --text2-color: #ffffff;
   --secondary-text-color: #757575;
@@ -68,8 +69,9 @@
   --call-btn: #757575;
 }
 [data-theme="dark"] {
-  --body-bg-color: #36454f;
-  --body-sec-bg-color: rgba(54, 69, 79, 0.8);
+  --body-bg-color: rgba(26, 30, 40, 1);
+  --body-sec-bg-color: rgba(34, 39, 50, 1);
+  --side-nav-bg-color: rgba(34, 39, 50, 1);
   --cards-bg-color: #f3f1f1;
   --text-color: #ffffff;
   --text2-color: #000000;
@@ -79,7 +81,7 @@
   --input-fields-color: #939090;
   --bullets-buttons-color: #ffffff;
   --blog-titles-color: #2bd3d3;
-  --nav-color: rgba(54, 69, 79, 0.8);
+  --nav-color: rgba(34, 39, 50, 0.9);
   --btn-color: #ffffff;
   --btn2-color: #000000;
   --call-btn: #ffffff;
@@ -240,7 +242,7 @@ input {
   width: 250px;
   height: 100%;
   overflow-y: auto;
-  background: var(--body-sec-bg-color);
+  background: var( --side-nav-bg-color);
   color: var(--text-color);
   padding: 20px;
   z-index: 5;
@@ -1008,11 +1010,11 @@ button {
 .left-part,
 .right-part {
   box-sizing: border-box;
-  padding: 20px;
+  padding: 30px;
 }
 .design-left-part,
 .left-part {
-  width: 30%;
+  width: 27%;
   background-color: var(--body-bg-color);
   margin-right: 20px;
   margin-top: 20px;
@@ -1091,7 +1093,7 @@ button {
   border-radius: 8px;
 }
 .right-part {
-  width: calc(70% - 20px);
+  width: calc(72% - 30px);
   margin: 0;
   padding: 0;
 }
@@ -1440,7 +1442,7 @@ header {
   .left-part,
   .right-part {
     width: 100%;
-    padding: 10px;
+    padding: 20px;
   }
   .left-part {
     margin-right: 0;
@@ -1552,9 +1554,9 @@ header {
   }
 }
 .design-right-part {
-  width: calc(70% - 20px);
+  width: calc(72% - 30px);
   margin: 0;
-  padding: 20px 0 0;
+  padding: 30px 0 0;
 }
 .design-search-input {
   position: relative;
@@ -1629,7 +1631,7 @@ header {
   .design-left-part,
   .design-right-part {
     width: 100%;
-    padding: 10px;
+    padding: 20px;
   }
   .design-left-part {
     margin-right: 0;
