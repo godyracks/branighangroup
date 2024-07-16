@@ -1078,6 +1078,25 @@ button {
   color: var(--subtopics-color);
   font-size: 20px;
 }
+.design-search-input span,
+.search-input3 span {
+  position: absolute;
+  right: 10px;
+  color: var(--subtopics-color);
+  font-size: 20px;
+}
+ input:focus {
+  border-color: rgb(235, 197, 43);
+}
+
+.design-search-input input:focus ~ i,
+.design-search-input input:focus ~ span {
+  color: rgb(235, 197, 43);
+}
+.search-input3 input:focus ~ i,
+.search-input3 input:focus ~ span {
+  color: rgb(235, 197, 43);
+}
 .design-search-input input,
 .search-input3 input {
   width: 100%;
@@ -1993,6 +2012,7 @@ header {
   background-color: var(--btn-color);
   cursor: pointer;
 }
+/* make changes to auth button */
 .modal-content img {
   max-width: 200px;
   height: auto;
