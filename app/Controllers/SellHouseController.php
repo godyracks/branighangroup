@@ -37,15 +37,26 @@ class SellHouseController extends Controller
         $images = $this->request->getFiles();
         $imageUrls = [];
         
-        if ($images && isset($images['images'])) {
-            foreach ($images['images'] as $image) {
-                if ($image->isValid() && !$image->hasMoved()) {
-                    $newName = $image->getRandomName();
-                    $image->move(WRITEPATH . 'uploads', $newName);
-                    $imageUrls[] = 'uploads/' . $newName;
-                }
-            }
-        }
+
+    // Determine the next folder number
+    $lastHouse = $sellHouseModel->orderBy('id', 'DESC')->first();
+    $nextFolderNumber = $lastHouse ? $lastHouse['id'] + 1 : 1;
+
+          // Create the new folder
+          $uploadPath = ROOTPATH . 'public/images/housesonsale/' . $nextFolderNumber;
+          if (!is_dir($uploadPath)) {
+              mkdir($uploadPath, 0777, true);
+          }
+  
+          if ($images && isset($images['images'])) {
+              foreach ($images['images'] as $image) {
+                  if ($image->isValid() && !$image->hasMoved()) {
+                      $newName = $image->getRandomName();
+                      $image->move($uploadPath, $newName);
+                      $imageUrls[] = '/images/housesonsale/' . $nextFolderNumber . '/' . $newName;
+                  }
+              }
+          }
 
         // Prepare the data for insertion
         $data = [

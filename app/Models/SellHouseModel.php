@@ -10,7 +10,7 @@ class SellHouseModel extends Model
     protected $primaryKey = 'id';
 
     protected $returnType     = 'array';
-    protected $useSoftDeletes = true;
+    protected $useSoftDeletes = false;
 
     protected $allowedFields = [
         'name', 'description', 'price', 'category_id', 'email', 'phone','image1_url', 'image2_url',
