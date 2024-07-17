@@ -28,7 +28,7 @@ class SellHouseController extends Controller
             'category_id' => 'required|integer',
             'email'       => 'required|valid_email',
             'phone'       => 'required|min_length[10]|max_length[15]',
-            'images'      => 'uploaded[images]|max_size[images,2048]|ext_in[images,jpg,jpeg,png]'
+            'images.*' => 'uploaded[images]|max_size[images,2048]|ext_in[images,jpg,jpeg,png]',
         ])) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
