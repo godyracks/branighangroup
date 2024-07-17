@@ -1,5 +1,7 @@
 <style>
- .search-filters {
+    /* Existing styles */
+
+    .search-filters {
         display: flex;
         justify-content: center;
         margin-bottom: 20px;
@@ -13,7 +15,7 @@
         border-radius: 20px;
         text-align: center; /* Center the text */
     }
-  
+
     .property-type-cards-container {
         display: flex;
         justify-content: center;
@@ -28,7 +30,6 @@
         width: 100%;
     }
 
-  
     #filter-by-property-type {
         text-align: center;
     }
@@ -94,77 +95,202 @@
         font-weight: 700;
         color: #007bff;
     }
-}
-        .amenities-cards {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .amenity-card {
-            width: 150px;
-            height: 150px;
-            background-color: #f0f0f0;
-            margin: 10px;
-            padding: 20px;
-            text-align: center;
-            display: flex;
+
+    /* Adjusted styles for search section */
+    .search-section {
+        display: none;
+        padding: 20px; /* Add padding to separate sections */
+    }
+    .search-section.active {
+        display: block;
+    }
+    .search-input-container {
+        display: flex;
+        align-items: center;
+    }
+    .search-input-wrapper {
+        position: relative;
+        flex: 1;
+    }
+    .search-results {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .search-icon,
+    .search-clear-icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        display: none; /* Hide by default */
+        color: #f58220; /* Orange color */
+    }
+    .search-icon {
+        left: 10px;
+    }
+    .search-clear-icon {
+        right: 10px;
+    }
+
+    .search-input:focus + .search-icon,
+    .search-results:not(:empty) + .search-icon,
+    .search-input:focus + .search-clear-icon,
+    .search-results:not(:empty) + .search-clear-icon {
+        display: inline-block; /* Show when input is focused or results are present */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .property {
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+            align-items: flex-start;
         }
-        .amenity-card span {
-            font-size: 36px;
+        .property img {
             margin-bottom: 10px;
         }
-        .amenity-card p {
-            margin: 0;
-            font-size: 14px;
-            font-weight: 700;
-        }
- 
+    }
 </style>
+
+
 <section class="find-home" id="find-home">
     <h1 class="find-home-title">Find Your Dream Home</h1>
     <p class="find-home-text">We help you find a house that fits your lifestyle, dreams, and budget!</p>
 </section>
+
 <section class="search-filters" id="search-filters">
     <div class="filter-item active" data-tab="search-by-location">Search by Location</div>
     <div class="filter-item" data-tab="filter-by-property-type">Filter by Property Type</div>
     <div class="filter-item" data-tab="filter-by-features">Filter by Amenities</div>
 </section>
-<section class="search-section active" id="search-by-location">
+
+<section class="search-section" id="search-by-location">
     <section class="search-property">
         <div class="search-property-headline">Search Property Location</div>
-        <div class="search-property-description">Simply enter the property location and press the search button (e.g., 'Nairobi').</div>
+        <div class="search-property-description">Simply enter the property location to get real-time results (e.g., 'Nairobi').</div>
         <div class="search-input-container">
-            <div class="search-input-wrapper"><i class="material-icons search-icon">search</i><input type="text" class="search-input" placeholder="Search property location"></div><button class="search-button">Search</button>
+            <div class="search-input-wrapper">
+                <i class="material-icons search-icon">search</i>
+                <input type="text" class="search-input" placeholder="Search property location">
+                <span class="material-icons search-clear-icon" id="clear-search">clear</span>
+                <div class="search-results" id="search-results"></div>
+            </div>
         </div>
+       
     </section>
-    <section class="home-results" id="home-results"></section>
 </section>
+
 <section class="search-section" id="filter-by-property-type">
     <h2 class="filter-title">Select Property Type</h2>
     <div class="property-type-cards-container">
-        <div class="property-type-cards"> <?php foreach ($categories as $category) : ?> <a href="<?= base_url('filter?category=' . $category['id']) ?>" class="property-card"><?= $category['name'] ?></a> <?php endforeach; ?> </div>
+        <div class="property-type-cards">
+            <?php foreach ($categories as $category) : ?>
+                <a href="<?= base_url('filter?category=' . $category['id']) ?>" class="property-card"><?= $category['name'] ?></a>
+            <?php endforeach; ?>
+        </div>
     </div>
 </section>
-<section class="search-section" id="filter-by-amenities">
+
+<section class="search-section" id="filter-by-features">
     <h2 class="filter-title">Filter by Amenities</h2>
     <div class="filter-list">
-    <div class="amenities-cards">
-                <div class="amenity-card"><span class="material-icons">directions_car</span>
-                    <p>Garage</p>
-                </div>
-                <div class="amenity-card"><span class="material-icons">pool</span>
-                    <p>Swimming Pool</p>
-                </div>
-                <div class="amenity-card"><span class="material-icons">hot_tub</span>
-                    <p>Jacuzzi</p>
-                </div>
+        <div class="amenities-cards">
+            <div class="amenity-card">
+                <span class="material-icons">directions_car</span>
+                <p>Garage</p>
             </div>
+            <div class="amenity-card">
+                <span class="material-icons">pool</span>
+                <p>Swimming Pool</p>
+            </div>
+            <div class="amenity-card">
+                <span class="material-icons">hot_tub</span>
+                <p>Jacuzzi</p>
+            </div>
+        </div>
+    </div>
 </section>
+
 <script>
-    document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelectorAll(".filter-item"),t=document.querySelectorAll(".search-section"),n=document.querySelector(".search-input"),r=document.querySelector(".search-button"),o=document.getElementById("home-results");e.forEach(n=>{n.addEventListener("click",()=>{e.forEach(e=>e.classList.remove("active")),n.classList.add("active"),t.forEach(e=>e.classList.remove("active")),document.getElementById(n.getAttribute("data-tab")).classList.add("active")})}),document.querySelector(".filter-item.active").click();const c=()=>{const e=n.value.trim();""!==e?fetch(`https://branighangroup.com/homesearch?location=${encodeURIComponent(e)}`).then(e=>{if(!e.ok)throw new Error("Network response was not ok");return e.json()}).then(t=>{if(o.innerHTML="",!t||0===t.length)return void(o.innerHTML="<p>No results found</p>");t.forEach(e=>{const t=document.createElement("a");t.href=`<?= base_url('/show/') ?>${e.id}/${encodeURIComponent(e.name)}`,t.classList.add("property"),t.innerHTML=`\n                        <img src="https://branighangroup.com/public${e.image1_url}" alt="${e.name}" />\n                        <div class="property-details">\n                            <h3>${e.name}</h3>\n                            <p class="price">Price: ${(e=>{return new Intl.NumberFormat("en-US",{style:"currency",currency:"KES"}).format(e)})(e.price)}</p>\n                        </div>\n                    `,o.appendChild(t)});const n=new URLSearchParams({location:e});history.pushState({},"",window.location.pathname+"?"+n.toString())}).catch(e=>console.error("Error fetching data:",e.message)):o.innerHTML=""};r.addEventListener("click",e=>{e.preventDefault(),c()}),n.addEventListener("keyup",e=>{"Enter"===e.key&&(e.preventDefault(),c())})});
+    document.addEventListener("DOMContentLoaded", () => {
+        const filterItems = document.querySelectorAll(".filter-item");
+        const searchSections = document.querySelectorAll(".search-section");
+        const searchInput = document.querySelector(".search-input");
+        const searchResults = document.getElementById("search-results");
+        const clearSearch = document.getElementById("clear-search");
+
+        // Function to toggle active state of filter items and search sections
+        filterItems.forEach(item => {
+            item.addEventListener("click", () => {
+                filterItems.forEach(filter => filter.classList.remove("active"));
+                item.classList.add("active");
+
+                // Hide all search sections
+                searchSections.forEach(section => section.classList.remove("active"));
+
+                // Show the corresponding search section
+                const tabId = item.getAttribute("data-tab");
+                document.getElementById(tabId).classList.add("active");
+            });
+        });
+
+        // Initially activate the first filter item
+        document.querySelector(".filter-item.active").click();
+
+        // Function to fetch search results based on input value
+        const fetchSearchResults = () => {
+            const query = searchInput.value.trim();
+            if (query !== "") {
+                fetch(`http://localhost/bg/homesearch?location=${encodeURIComponent(query)}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Network response was not ok");
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        searchResults.innerHTML = ""; // Clear previous results
+                        if (!data || data.length === 0) {
+                            searchResults.innerHTML = "<p>No results found</p>";
+                            return;
+                        }
+                        const resultList = document.createElement("ul");
+                        resultList.classList.add("search-results-list");
+                        data.forEach(property => {
+                            const listItem = document.createElement("li");
+                            listItem.classList.add("search-result-item");
+                            const propertyLink = document.createElement("a");
+                            propertyLink.href = `<?= base_url('/show/') ?>${property.id}/${encodeURIComponent(property.name)}`;
+                            propertyLink.classList.add("property");
+                            propertyLink.innerHTML = `
+                                <img src="http://localhost/bg/public${property.image1_url}" alt="${property.name}" />
+                                <div class="property-details">
+                                    <h3>${property.name}</h3>
+                                    <p class="price">Price: ${new Intl.NumberFormat("en-US", { style: "currency", currency: "KES" }).format(property.price)}</p>
+                                </div>
+                            `;
+                            listItem.appendChild(propertyLink);
+                            resultList.appendChild(listItem);
+                        });
+                        searchResults.appendChild(resultList);
+                    })
+                    .catch(error => console.error("Error fetching data:", error.message));
+            } else {
+                searchResults.innerHTML = ""; // Clear results if query is empty
+            }
+        };
+
+        // Event listener for input change
+        searchInput.addEventListener("input", fetchSearchResults);
+
+        // Event listener for clearing search
+        clearSearch.addEventListener("click", () => {
+            searchInput.value = ""; // Clear input field
+            searchResults.innerHTML = ""; // Clear search results
+        });
+
+        // Event listener to show/hide clear icon based on input focus
+        searchInput.addEventListener("input", () => {
+            clearSearch.style.display = searchInput.value.trim() !== "" ? "inline-block" : "none";
+        });
+    });
 </script>
