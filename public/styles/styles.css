@@ -54,11 +54,11 @@
 :root {
   --body-bg-color: #ffffff;
   --body-sec-bg-color: #f8f9fa;
-  --side-nav-bg-color: rgba(248, 249, 250, 1);
+    --side-nav-bg-color: rgba(248, 249, 250, 1);
   --text-color: #000000;
   --text2-color: #ffffff;
   --secondary-text-color: #757575;
-  --input-fields-color: #e7e3e3;
+   --input-fields-color: #e7e3e3;
   --page-sections-bg-color: #f3f1f1;
   --bullets-buttons-color: #fcbc17;
   --blog-titles-color: #000000;
@@ -78,7 +78,7 @@
   --body-section-bg-color: #212121;
   --page-sections-bg-color: #939090;
   --blog-titles-color: #2bd3d3;
-  --input-fields-color: rgba(48, 52, 63, 1);
+   --input-fields-color: rgba(48, 52, 63, 1);
   --bullets-buttons-color: #ffffff;
   --blog-titles-color: #2bd3d3;
   --nav-color: rgba(34, 39, 50, 0.9);
@@ -172,8 +172,6 @@ input {
 .side-nav-menu a {
   text-decoration: none;
   color: var(--text-color);
-  
-
 }
 .design-left-part .design-nav a, .left-part .house-nav a{
   padding:5px;
@@ -365,7 +363,7 @@ input {
 }
 .hero {
   padding: 50px;
-  background-image: url("https://branighangroup.com/branighan_text.png");
+  background-image: url("https://branighangroup.com/public/images/branighan_text.png");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -600,7 +598,7 @@ input {
 }
 .filter-item.active {
   color: var(--text-color);
-  background-color:var(--input-fields-color); /* Updated active color */
+  background-color:var(--input-fields-color); 
   border: none;
   text-decoration: none;
   font-size: 12px;
@@ -614,6 +612,13 @@ input {
   display: flex;
   flex-wrap: wrap;
 }
+  .property-type-cards .property-card {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+       
+    }
 .feature-item,
 .property-card {
   margin: 0 auto;
@@ -624,16 +629,9 @@ input {
   cursor: pointer;
   color: var(--text2-color);
 }
-    .property-type-cards .property-card {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 20px;
-       
-    }
 .property-card,
 .property-type-cards a {
-  background-color: transparent;
+   background-color: transparent;
   padding: 15px 30px;
   transition: background-color 0.3s, color 0.3s;
   justify-content: center;
@@ -643,7 +641,6 @@ input {
   
   margin: 0 auto;
 }
-
 .property-card {
   color: var(--text-color);
   width: 180px;
@@ -710,7 +707,6 @@ input {
   align-items: center;
   justify-content: center;
   max-width: 600px;
- 
   margin: 0 auto;
   border-radius: 5px;
   padding: 10px;
@@ -726,7 +722,8 @@ input {
   flex: 1;
   border: none;
   outline: 0;
-  background-color: var(--input-fields-color);
+  background-color: transparent;
+   background-color: var(--input-fields-color);
   font-size: 16px;
   color: var(--text-color);
   padding: 5px 5px 5px 30px;
@@ -743,7 +740,7 @@ input {
   width: 100%;
   height: 50px;
   border: 1px solid grey;
-  background-color: var(--input-fields-color);
+   background-color: var(--input-fields-color);
   border-radius: 5px;
   padding: 5px;
   margin-bottom: 10px;
@@ -1085,10 +1082,6 @@ button {
   color: var(--subtopics-color);
   font-size: 20px;
 }
- input:focus {
-  border-color: rgb(235, 197, 43);
-}
-
 .design-search-input input:focus ~ i,
 .design-search-input input:focus ~ span {
   color: rgb(235, 197, 43);
@@ -1100,12 +1093,12 @@ button {
 .design-search-input input,
 .search-input3 input {
   width: 100%;
-  height: 40px;
+    height: 40px;
   padding: 10px 10px 10px 40px;
   border: 1px solid var(--subtopics-color);
-  border-radius: 8px;
+  border-radius: 5px;
   font-size: 16px;
-  color: white;
+   color: var(--text-color);
   background-color: var(--input-fields-color);
 }
 .search-input3 {
@@ -1628,7 +1621,7 @@ header {
 .design-search-results {
   top: 100%;
   left: 0;
-  /* border: 1px solid #ddd; */
+  /*border: 1px solid #ddd;*/
   position: absolute;
   width: 100%;
   max-height: 300px;
@@ -1637,7 +1630,7 @@ header {
 .design-search-result-item {
   display: flex;
   padding: 10px;
-  /* border-bottom: 1px solid #ddd; */
+  border-bottom: 1px solid #ddd;
 }
 .design-search-result-item img {
   width: 50px;
@@ -2012,7 +2005,6 @@ header {
   background-color: var(--btn-color);
   cursor: pointer;
 }
-/* make changes to auth button */
 .modal-content img {
   max-width: 200px;
   height: auto;
@@ -2192,7 +2184,7 @@ header {
   overflow: hidden;
 }
 .image-container {
-  flex: 0 0 auto;
+  /*flex: 0 0 auto;*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2247,7 +2239,7 @@ header {
   max-height: 300px;
   overflow-y: auto;
   background-color: var(--body-bg-color);
-  /* border: 1px solid #ddd; */
+  /*border: 1px solid #ddd;*/
   margin-top: 20px;
 }
 .search-result-item {
@@ -2257,7 +2249,8 @@ header {
   border-bottom: 1px solid #ddd;
 }
 .search-result-item:hover {
-  background-color: #f9f9f9;
+  background-color:   #4f4d4d;
+  color: var(--text-color);
 }
 .search-result-item img {
   width: 50px;

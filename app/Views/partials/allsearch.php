@@ -121,7 +121,6 @@
     }
     .search-input::placeholder {
         color: #aaa; /* Placeholder text color */
-        margin-left: 60px;
     }
     .search-icon,
     .search-clear-icon {
@@ -187,6 +186,10 @@
 
 <section class="search-section" id="search-by-location">
     <section class="search-property">
+         <div class="search-property-headline">Search Property Location</div>
+        <div class="search-property-description">
+            Simply enter the property location and press the search results (e.g.'Nakuru', 'Nairobi').
+        </div>
         <div class="search-input-container">
             <input type="text" class="search-input" placeholder="Search property location">
             <span class="material-icons search-icon">search</span>
