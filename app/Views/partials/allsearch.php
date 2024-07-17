@@ -1,5 +1,5 @@
 <style>
-    /* Existing styles */
+    /* Global styles remain the same */
 
     .search-filters {
         display: flex;
@@ -104,39 +104,48 @@
     .search-section.active {
         display: block;
     }
-    .search-input-container {
-        display: flex;
-        align-items: center;
-    }
-    .search-input-wrapper {
+    .search-input {
         position: relative;
-        flex: 1;
-    }
-    .search-results {
+        padding: 15px 30px ; /* Adjust padding for input */
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        font-size: 16px;
         width: 100%;
-        margin-top: 20px;
+        max-width: 600px; /* Adjust maximum width */
+        box-sizing: border-box; /* Ensure padding and border are included in width */
+        height: 50px;
+    }
+    .search-input:focus {
+        outline: none;
+        border-color: #007bff; /* Example focus state */
+    }
+    .search-input::placeholder {
+        color: #aaa; /* Placeholder text color */
+        margin-left: 60px;
     }
     .search-icon,
     .search-clear-icon {
         position: absolute;
-        top: 50%;
+      
         transform: translateY(-50%);
         cursor: pointer;
-        display: none; /* Hide by default */
         color: #f58220; /* Orange color */
     }
-    .search-icon {
-        left: 10px;
-    }
     .search-clear-icon {
-        right: 10px;
+        right: 20px;
+        display: none; /* Hide by default */
+        top: 50%;
+    }
+    .search-icon {
+        top: 35%;
+        left: 20px;
     }
 
     .search-input:focus + .search-icon,
+    .search-input:not(:placeholder-shown) + .search-clear-icon,
     .search-results:not(:empty) + .search-icon,
-    .search-input:focus + .search-clear-icon,
     .search-results:not(:empty) + .search-clear-icon {
-        display: inline-block; /* Show when input is focused or results are present */
+        display: inline-block; /* Show when input is focused, has content, or results are present */
     }
 
     /* Responsive adjustments */
@@ -148,9 +157,22 @@
         .property img {
             margin-bottom: 10px;
         }
+        .search-input {
+        position: relative;
+        padding: 15px 30px ; 
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        font-size: 16px;
+        width: 100%;
+        max-width: 300px; 
+        box-sizing: border-box; 
+        height: 50px;
+    }
+    .search-section{
+        max-width: auto; 
+    }
     }
 </style>
-
 
 <section class="find-home" id="find-home">
     <h1 class="find-home-title">Find Your Dream Home</h1>
@@ -165,17 +187,13 @@
 
 <section class="search-section" id="search-by-location">
     <section class="search-property">
-        <div class="search-property-headline">Search Property Location</div>
-        <div class="search-property-description">Simply enter the property location to get real-time results (e.g., 'Nairobi').</div>
         <div class="search-input-container">
-            <div class="search-input-wrapper">
-                <i class="material-icons search-icon">search</i>
-                <input type="text" class="search-input" placeholder="Search property location">
-                <span class="material-icons search-clear-icon" id="clear-search">clear</span>
-                <div class="search-results" id="search-results"></div>
-            </div>
+            <input type="text" class="search-input" placeholder="Search property location">
+            <span class="material-icons search-icon">search</span>
+            <span class="material-icons search-clear-icon" id="clear-search">clear</span>
+            <div class="search-results" id="search-results"></div>
         </div>
-       
+        
     </section>
 </section>
 
@@ -183,6 +201,7 @@
     <h2 class="filter-title">Select Property Type</h2>
     <div class="property-type-cards-container">
         <div class="property-type-cards">
+            <!-- Example PHP loop for property cards -->
             <?php foreach ($categories as $category) : ?>
                 <a href="<?= base_url('filter?category=' . $category['id']) ?>" class="property-card"><?= $category['name'] ?></a>
             <?php endforeach; ?>
