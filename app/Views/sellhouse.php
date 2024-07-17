@@ -125,7 +125,7 @@
             }
             .submit-button {
                 padding: 25px 50px;
-                background-color: #e0a300;
+                background-color: #000000;
                 color: white;
                 border: none;
                 border-radius: 14px;
@@ -135,7 +135,8 @@
                  margin-left: 0;
             }
             .submit-button:hover {
-                background-color: #c38e00;
+                background-color: #212121;
+                border: 1px solid #ffffff;
             }
         `;
         document.head.appendChild(style);
