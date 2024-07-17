@@ -36,27 +36,26 @@ class SellHouseController extends Controller
         // Handle the file uploads
         $images = $this->request->getFiles();
         $imageUrls = [];
-        
 
-    // Determine the next folder number
-    $lastHouse = $sellHouseModel->orderBy('id', 'DESC')->first();
-    $nextFolderNumber = $lastHouse ? $lastHouse['id'] + 1 : 1;
+        // Determine the next folder number
+        $lastHouse = $sellHouseModel->orderBy('id', 'DESC')->first();
+        $nextFolderNumber = $lastHouse ? $lastHouse['id'] + 1 : 1;
 
-          // Create the new folder
-          $uploadPath = ROOTPATH . 'public/images/housesonsale/' . $nextFolderNumber;
-          if (!is_dir($uploadPath)) {
-              mkdir($uploadPath, 0777, true);
-          }
-  
-          if ($images && isset($images['images'])) {
-              foreach ($images['images'] as $image) {
-                  if ($image->isValid() && !$image->hasMoved()) {
-                      $newName = $image->getRandomName();
-                      $image->move($uploadPath, $newName);
-                      $imageUrls[] = '/images/housesonsale/' . $nextFolderNumber . '/' . $newName;
-                  }
-              }
-          }
+        // Create the new folder
+        $uploadPath = ROOTPATH . 'public/images/housesonsale/' . $nextFolderNumber;
+        if (!is_dir($uploadPath)) {
+            mkdir($uploadPath, 0777, true);
+        }
+
+        if ($images && isset($images['images'])) {
+            foreach ($images['images'] as $image) {
+                if ($image->isValid() && !$image->hasMoved()) {
+                    $newName = $image->getRandomName();
+                    $image->move($uploadPath, $newName);
+                    $imageUrls[] = '/images/housesonsale/' . $nextFolderNumber . '/' . $newName;
+                }
+            }
+        }
 
         // Prepare the data for insertion
         $data = [
@@ -68,19 +67,47 @@ class SellHouseController extends Controller
             'phone'       => $this->request->getPost('phone')
         ];
 
-   // Add image URLs to the data
-foreach ($imageUrls as $key => $imageUrl) {
-    $data['image' . ($key + 1) . '_url'] = $imageUrl;
-}
+        // Add image URLs to the data
+        foreach ($imageUrls as $key => $imageUrl) {
+            $data['image' . ($key + 1) . '_url'] = $imageUrl;
+        }
 
-// Ensure that all image keys are set to null if no image is uploaded
-for ($i = count($imageUrls) + 1; $i <= 8; $i++) {
-    $data['image' . $i . '_url'] = null;
-}
+        // Ensure that all image keys are set to null if no image is uploaded
+        for ($i = count($imageUrls) + 1; $i <= 8; $i++) {
+            $data['image' . $i . '_url'] = null;
+        }
 
         // Insert the data into the database
         $sellHouseModel->save($data);
 
+        // Send the email
+        $this->sendEmail($data);
+
         return redirect()->to(base_url('sellyourhouse'))->with('message', 'House listed successfully!');
+    }
+
+    private function sendEmail($data)
+    {
+        $email = \Config\Services::email();
+
+        $email->setFrom($data['email'], $data['name']);
+        $email->setTo('contact@branighangroup.com');
+
+        $email->setSubject('New House Listing');
+        $email->setMessage(
+            "A new house has been listed:\n\n" .
+            "Name: " . $data['name'] . "\n" .
+            "Description: " . $data['description'] . "\n" .
+            "Price: " . $data['price'] . "\n" .
+            "Category ID: " . $data['category_id'] . "\n" .
+            "Email: " . $data['email'] . "\n" .
+            "Phone: " . $data['phone'] . "\n" .
+            "Images: " . implode(", ", array_filter(array_slice($data, 7, 8))) . "\n"
+        );
+
+        if (!$email->send()) {
+            log_message('error', 'Email could not be sent.');
+            log_message('error', $email->printDebugger(['headers']));
+        }
     }
 }
