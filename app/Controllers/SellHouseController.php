@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\HouseModel;
+use App\Models\SellHouseModel;
 use App\Models\CategoryModel;
 use CodeIgniter\Controller;
 
@@ -18,28 +18,17 @@ class SellHouseController extends Controller
 
     public function sellsubmit()
     {
-        $houseModel = new HouseModel();
+        $sellHouseModel = new SellHouseModel();
 
         // Validate the request
         if (!$this->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'price' => 'required|numeric',
-            'category_id' => 'required',
-            'bedrooms' => 'required|numeric',
-            'bathrooms' => 'required|numeric',
-            'square_footage' => 'required|numeric',
-            'address' => 'required',
-            'city' => 'required',
-            'state' => 'required',
-            'zip_code' => 'required',
-            'year_built' => 'required|numeric',
-            'lot_size' => 'required|numeric',
-            'garage_spaces' => 'required|numeric',
-            'amenities' => 'required',
-            'latitude' => 'required',
-            'longitude' => 'required',
-            'images.*' => 'uploaded[images]|max_size[images,2048]|ext_in[images,jpg,jpeg,png]',
+            'name'        => 'required|min_length[3]|max_length[255]',
+            'description' => 'required|min_length[3]',
+            'price'       => 'required|numeric',
+            'category_id' => 'required|integer',
+            'email'       => 'required|valid_email',
+            'phone'       => 'required|min_length[10]|max_length[15]',
+            'images'      => 'uploaded[images]|max_size[images,2048]|ext_in[images,jpg,jpeg,png]'
         ])) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
@@ -60,23 +49,12 @@ class SellHouseController extends Controller
 
         // Prepare the data for insertion
         $data = [
-            'name' => $this->request->getPost('name'),
+            'name'        => $this->request->getPost('name'),
             'description' => $this->request->getPost('description'),
-            'price' => $this->request->getPost('price'),
+            'price'       => $this->request->getPost('price'),
             'category_id' => $this->request->getPost('category_id'),
-            'bedrooms' => $this->request->getPost('bedrooms'),
-            'bathrooms' => $this->request->getPost('bathrooms'),
-            'square_footage' => $this->request->getPost('square_footage'),
-            'address' => $this->request->getPost('address'),
-            'city' => $this->request->getPost('city'),
-            'state' => $this->request->getPost('state'),
-            'zip_code' => $this->request->getPost('zip_code'),
-            'year_built' => $this->request->getPost('year_built'),
-            'lot_size' => $this->request->getPost('lot_size'),
-            'garage_spaces' => $this->request->getPost('garage_spaces'),
-            'amenities' => $this->request->getPost('amenities'),
-            'latitude' => $this->request->getPost('latitude'),
-            'longitude' => $this->request->getPost('longitude'),
+            'email'       => $this->request->getPost('email'),
+            'phone'       => $this->request->getPost('phone')
         ];
 
    // Add image URLs to the data
@@ -90,7 +68,7 @@ for ($i = count($imageUrls) + 1; $i <= 8; $i++) {
 }
 
         // Insert the data into the database
-        $houseModel->save($data);
+        $sellHouseModel->save($data);
 
         return redirect()->to(base_url('sellyourhouse'))->with('message', 'House listed successfully!');
     }
