@@ -167,35 +167,48 @@ public function filterByAmenities($amenity)
     }
 
     // Display detailed house information
-    public function show($id, $name)
-    {
-        // Retrieve the house details by ID
-        $house = $this->houseModel->find($id);
+    // public function show($name)
+    // {
+    //     // Retrieve the house details by the unique name
+    //     $house = $this->houseModel->where('name', $name)->first();
     
-        // Check if the house exists
-        if (!$house) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException('House not found');
-        }
+    //     // Check if the house exists
+    //     if (!$house) {
+    //         throw new \CodeIgniter\Exceptions\PageNotFoundException('House not found');
+    //     }
     
-        // Verify that the name in the URL matches the actual name
-        if (url_title($house['name'], '-', TRUE) !== $name) {
-            // If the name in the URL doesn't match the actual name, redirect to the correct URL
-            return redirect()->to(site_url("show/{$id}/" . url_title($house['name'], '-', TRUE)));
-        }
+    //     // Fetch similar homes based on some criteria
+    //     $similarHomes = $this->houseModel->findSimilar($house); // Example method, adjust as needed
     
-        // Fetch similar homes based on some criteria
-        $similarHomes = $this->houseModel->findSimilar($house); // Example method, adjust as needed
+    //     // Prepare data to be passed to the view
+    //     $data = [
+    //         'house' => $house,
+    //         'similarHomes' => $similarHomes,
+    //         'categories' => $this->categoryModel->findAll()
+    //     ];
     
-        // Prepare data to be passed to the view
-        $data = [
-            'house' => $house,
-            'similarHomes' => $similarHomes,
-            'categories' => $this->categoryModel->findAll()
-        ];
+    //     // Load the view to display the house details
+    //     return view('descview', $data);
+    // }
     
-        // Load the view to display the house details
-        return view('descview', $data);
+    public function show($name)
+{
+    // Retrieve the house details by the unique name
+    $house = $this->houseModel->where('name', $name)->first();
+
+    // Check if the house exists
+    if (!$house) {
+        throw new \CodeIgniter\Exceptions\PageNotFoundException('House not found');
     }
-    
+
+    // Prepare data to be passed to the view
+    $data = [
+        'house' => $house,
+        'categories' => $this->categoryModel->findAll()
+    ];
+
+    // Load the view to display the house details
+    return view('descview', $data);
+}
 
 }

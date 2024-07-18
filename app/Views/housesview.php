@@ -45,7 +45,7 @@
                 <?php if (!empty($houses)) : ?>
                     <?php foreach ($houses as $house) : ?>
                         <div class="card">
-                            <a href="<?= site_url('show/' . $house['id'] . '/' . url_title($house['name'], '-', TRUE)) ?>">
+                            <a href="<?= site_url('show/' . urlencode($house['name'])) ?>">
                                 <img src="<?= base_url('/public/') . $house['image1_url'] ?>" alt="<?= $house['name'] ?>">
                                 <div class="card-info">
                                     <h4><?= $house['name'] ?></h4>
@@ -114,7 +114,7 @@
             const query = searchInput.value;
     
             if (query.length > 2) { 
-                fetch(`<?= base_url('search') ?>?query=${query}`)
+                fetch(<?= base_url('search') ?>?query=${query})
                     .then(response => response.json())
                     .then(houses => {
                         searchResults.innerHTML = ''; 
@@ -132,8 +132,8 @@
                                 });
                                 const formattedPrice = formatter.format(house.price);
     
-                                houseElement.innerHTML = `
-                                    <a href="<?= site_url('show/') ?>${house.id}/${house.name}">
+                                houseElement.innerHTML = 
+                                    <a href="<?= site_url('show/') ?>${encodeURIComponent(house.name)}">
                                         <img src="<?= base_url('/public/') ?>${house.image1_url}" alt="${house.name}">
                                         <div class="result-info">
                                             <h4>${house.name}</h4>
@@ -141,7 +141,7 @@
                                             <span class="price">${formattedPrice}</span>
                                         </div>
                                     </a>
-                                `;
+                                ;
     
                                 searchResults.appendChild(houseElement);
                             });
@@ -157,10 +157,10 @@
         });
 
         clearSearchIcon.addEventListener('click', function() {
-    searchInput.value = '';
-    searchResults.innerHTML = '';
-    clearSearchIcon.style.display = 'none';
-});
+            searchInput.value = '';
+            searchResults.innerHTML = '';
+            clearSearchIcon.style.display = 'none';
+        });
     });
 </script>
 <?= $this->endSection() ?>

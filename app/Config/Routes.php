@@ -14,7 +14,15 @@ $routes->get('/designs/filter', 'DesignController::filter');
 $routes->get('/about', 'AboutController::index');
 $routes->get('/faqs', 'FaqsController::index');
 $routes->get('/contact-us', 'ContactController::index');
-$routes->get('show/(:num)/(:segment)', 'HouseController::show/$1/$2');
+// $routes->get('show/(:num)/(:segment)', 'HouseController::show/$1/$2');
+$routes->get('show/(:segment)', 'HouseController::show/$1');
+
+
+
+
+//$routes->get('show/(:num)', 'HouseController::showById/$1');
+
+
 $routes->get('design/show/(:num)/(:segment)', 'DesignController::show/$1/$2');
 $routes->get('/houses', 'HouseController::index');
 $routes->get('/house/filterByCategory/(:num)', 'HouseController::filterByCategory/$1');

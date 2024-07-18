@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use CodeIgniter\Model;
@@ -16,6 +17,13 @@ class HouseModel extends Model
         'image3_url', 'image4_url', 'image5_url', 'image6_url',
         'image7_url', 'image8_url'
     ];
+
+    public function findByName($name)
+    {
+        return $this->where('name', url_title($name, '-', TRUE))
+                    ->first();
+    }
+    
 
     public function findSimilar($house)
     {
