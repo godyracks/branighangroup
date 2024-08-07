@@ -13,7 +13,12 @@ class GoogleApi
         $this->client = new Client();
         $this->client->setClientId('827758348721-utvai3fuca88hi0ulhdu9m7fn0179ju9.apps.googleusercontent.com');
         $this->client->setClientSecret('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');
-        $this->client->setRedirectUri('https://branighangroup.com/google-callback');
+      // Detect environment and set redirect URI accordingly
+      $redirectUri = ($_SERVER['HTTP_HOST'] === 'localhost') ? getenv('google.redirect_uri_local') : getenv('google.redirect_uri_production');
+      $this->client->setRedirectUri($redirectUri);
+        $this->client->setHttpClient(new \GuzzleHttp\Client([
+            'verify' => false, // Disable SSL verification//remove this on production
+        ]));
         $this->client->addScope('email');
         $this->client->addScope('profile');
     }
