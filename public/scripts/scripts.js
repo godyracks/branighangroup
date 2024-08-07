@@ -72,9 +72,13 @@ menuCheckbox.addEventListener("change", () => {
             behavior: "smooth"
         })
     })
-}), window.addEventListener("scroll", function() {
+}),window.addEventListener("scroll", function() {
     var e = document.getElementById("navbar");
-    window.scrollY > e.offsetTop ? (e.style.position = "fixed", e.style.top = "0", e.style.width = "calc(100% - 20px)", e.style.zIndex = "1000", e.classList.add("translucent")) : (e.style.position = "static", e.classList.remove("translucent"))
+    if (window.scrollY > e.offsetTop) {
+        e.classList.add("translucent");
+    } else {
+        e.classList.remove("translucent");
+    }
 }), document.addEventListener("DOMContentLoaded", function() {
     const e = document.querySelector(".scroll-left"),
         t = document.querySelector(".scroll-right"),
