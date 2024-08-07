@@ -39,10 +39,10 @@ class BlogModel extends Model
         return $this->findAll();
     }
 
-    // Method to get a single post by ID
-    public function getPostById($id)
+    // Method to get a single post by title
+    public function getPostByTitle($title)
     {
-        return $this->find($id);
+        return $this->where('title', $title)->first();
     }
 
     // Method to create a new post
@@ -64,11 +64,10 @@ class BlogModel extends Model
     }
 
     // Method to get the top 5 posts based on created_at in descending order
-   public function getTopPosts()
-{
-    return $this->orderBy('RAND()')->limit(5)->findAll();
-}
-
+    public function getTopPosts()
+    {
+        return $this->orderBy('created_at', 'DESC')->limit(5)->findAll();
+    }
 
     // Method to get the top 4 latest articles
     public function getLatestArticles()
@@ -76,11 +75,17 @@ class BlogModel extends Model
         return $this->orderBy('created_at', 'DESC')->findAll(4);
     }
     
+    // Method to search posts by title or content
     public function searchPosts($query)
     {
-        // Example: perform search in the 'title' or 'content' fields
         return $this->like('title', $query)
                     ->orWhere('content', $query)
                     ->findAll();
     }
+    
+    public function getPostById($id)
+{
+    return $this->find($id);
+}
+
 }

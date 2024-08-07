@@ -1,28 +1,59 @@
 <?php
-// app/Controllers/Dashboard/UserManagementController.php
+
 
 namespace App\Controllers\Dashboard;
 
 use App\Controllers\BaseController;
 use App\Models\UserModel;
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 class UserController extends BaseController
 {
     protected $userModel;
+     private $allowedEmails = [
+        'branighangroup@gmail.com',
+        'godfreymatagaro@gmail.com',
+        'brannyokara@gmail.com'
+    ];
+    private $session;
 
     public function __construct()
     {
         $this->userModel = new UserModel();
+        $this->session = session();
     }
-
-    public function index()
+       private function checkAccess()
     {
-        // Fetch all users
-        $data['users'] = $this->userModel->findAll();
+        // Check if user is logged in
+        if (!$this->session->has('isLoggedIn')) {
+            throw new PageNotFoundException('You are not logged in.');
+        }
 
-        // Load view with fetched data
-        return view('dashboard/user_managementview', $data);
+        // Retrieve the user's email from the session
+        $userEmail = $this->session->get('userData')['email'];
+
+        // Check if the user's email is in the list of allowed emails
+        if (!in_array($userEmail, $this->allowedEmails)) {
+            throw new PageNotFoundException('You do not have permission to access this page.');
+        }
     }
+
+   public function index()
+{
+    try {
+        $this->checkAccess();
+    } catch (PageNotFoundException $e) {
+        return redirect()->to('/')->with('error', $e->getMessage());
+    }
+
+    $userdata = $this->userModel->findAll(); // Fetch all users from the database
+    $data = [
+        'users' => $userdata,
+        'userData' => $this->session->get('userData')
+    ];
+
+    return view('dashboard/user_managementview', $data);
+}
 
   
 

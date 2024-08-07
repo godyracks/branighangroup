@@ -4,12 +4,12 @@
   <div class="horizontal-div">
     <div class="desc-child left-child">
       <nav class="breadcrumb">
-      <a href="<?= base_url('/') ?>">Home</a>&gt;
+        <a href="<?= base_url('/') ?>">Home</a>&gt;
         <?php if (!empty($house)): ?>
-            <a href="<?= base_url('houses') ?>">Houses in Kenya</a>&gt; Available &gt;
+        <a href="<?= base_url('houses') ?>">Houses in Kenya</a>&gt; Available &gt;
         <?= $house['name'] ?>
         <?php elseif (!empty($design)): ?>
-            <a href="<?= base_url('designs') ?>">Designs</a>&gt; Available &gt;
+          <a href="<?= base_url('designs') ?>">Designs</a>&gt;
         <?= $design['name'] ?>
         <?php endif; ?>
       </nav>
@@ -23,7 +23,7 @@
         />
         <?php elseif (!empty($design)): ?>
         <img
-          src="<?= base_url('/public/images/') . $design['image1_url'] ?>"
+          src="<?= base_url('/public/') . $design['image1_url'] ?>"
           alt="<?= $design['name'] ?>"
           class="big-image"
         />
@@ -41,7 +41,7 @@
           <?php elseif (!empty($design)): ?>
           <?php for ($i = 1; $i <= 8; $i++): ?>
           <?php if (!empty($design["image{$i}_url"])): ?>
-          <img src="<?= base_url('/public/images/') . $design["image{$i}_url"] ?>"
+          <img src="<?= base_url('/public/') . $design["image{$i}_url"] ?>"
           alt="Image
           <?= $i ?>">
           <?php endif; ?>
@@ -53,7 +53,7 @@
       <div class="price-rating">
         <span class="price"
           >KES
-          <?= number_format($house['price']) ?></span
+          <?= number_format($house['price']) ?>.00</span
         ><span class="rating"
           >Rating<i class="material-icons">star</i
           ><i class="material-icons">star</i><i class="material-icons">star</i
@@ -65,7 +65,7 @@
       <div class="price-rating">
         <span class="price"
           >KES
-          <?= number_format($design['price']) ?></span
+          <?= number_format($design['price']) ?>.00</span
         ><span class="rating"
           >Rating<i class="material-icons">star</i
           ><i class="material-icons">star</i><i class="material-icons">star</i
@@ -78,7 +78,7 @@
     <?php if (!empty($house)): ?>
     <div class="desc-child right-child">
       <h2><?= $house['name'] ?></h2>
-      <p><?= $house['description'] ?></p>
+      <p><?= truncate_words($house['description'], 35); ?></p>
       <div class="action-buttons">
         <button class="whatsapp-button">
           <a
@@ -181,7 +181,9 @@
   <div class="horizontal-div">
     <div class="desc-child2 left-child">
       <p><?= $house['description'] ?></p>
-      <h4>Key Features</h4>
+      
+    </div>
+    <div class="desc-child2 right-child"><h4>Features Summary</h4>
       <table class="features-table">
         <tr>
           <td>Rooms</td>
@@ -235,121 +237,16 @@
           <td>Longitude</td>
           <td><?= $house['longitude'] ?></td>
         </tr>
-      </table>
-    </div>
-    <div class="desc-child2 right-child">
-      <h3>Customer Reviews</h3>
-      <div class="review">
-        <h4>John Doe</h4>
-        <div class="rating">
-          <i class="material-icons">star</i><i class="material-icons">star</i
-          ><i class="material-icons">star</i><i class="material-icons">star</i
-          ><i class="material-icons">star</i>
-        </div>
-        <p>
-          This charming house offers spacious rooms, a well-appointed kitchen,
-          and a serene backyard. Conveniently located in a family-friendly
-          neighborhood, it's an ideal home for creating lasting memories.
-        </p>
-      </div>
-      <div class="review">
-        <h4>Jane Smith</h4>
-        <div class="rating">
-          <i class="material-icons">star</i><i class="material-icons">star</i
-          ><i class="material-icons">star</i><i class="material-icons">star</i
-          ><i class="material-icons">star</i>
-        </div>
-        <p>
-          Excellent location and modern amenities. This house truly offers a
-          comfortable and stylish living experience. Highly recommended!
-        </p>
-      </div>
-      <div class="review">
-        <h4>Michael Brown</h4>
-        <div class="rating">
-          <i class="material-icons">star</i><i class="material-icons">star</i
-          ><i class="material-icons">star</i><i class="material-icons">star</i
-          ><i class="material-icons">star</i>
-        </div>
-        <p>
-          A fantastic house in a great location. The design and facilities are
-          top-notch, making it a perfect home for families.
-        </p>
-      </div>
-      <div class="review">
-        <h4>Sarah Wilson</h4>
-        <div class="rating">
-          <i class="material-icons">star</i><i class="material-icons">star</i
-          ><i class="material-icons">star</i><i class="material-icons">star</i
-          ><i class="material-icons">star</i>
-        </div>
-        <p>
-          I love the spacious layout and modern design. It's a beautiful house
-          in a convenient location. Highly recommended!
-        </p>
-      </div>
-    </div>
+      </table></div>
   </div>
 </div>
 <?php elseif (!empty($design)): ?>
 <div class="horizontal-div">
   <div class="desc-child2 left-child">
     <p><?= $design['description'] ?></p>
-    <h4>Key Features</h4>
-    <table class="features-table"></table>
   </div>
-  <div class="desc-child2 right-child">
-    <h3>Customer Reviews</h3>
-    <div class="review">
-      <h4>John Doe</h4>
-      <div class="rating">
-        <i class="material-icons">star</i><i class="material-icons">star</i
-        ><i class="material-icons">star</i><i class="material-icons">star</i
-        ><i class="material-icons">star</i>
-      </div>
-      <p>
-        This charming house offers spacious rooms, a well-appointed kitchen, and
-        a serene backyard. Conveniently located in a family-friendly
-        neighborhood, it's an ideal home for creating lasting memories.
-      </p>
-    </div>
-    <div class="review">
-      <h4>Jane Smith</h4>
-      <div class="rating">
-        <i class="material-icons">star</i><i class="material-icons">star</i
-        ><i class="material-icons">star</i><i class="material-icons">star</i
-        ><i class="material-icons">star</i>
-      </div>
-      <p>
-        Excellent location and modern amenities. This house truly offers a
-        comfortable and stylish living experience. Highly recommended!
-      </p>
-    </div>
-    <div class="review">
-      <h4>Michael Brown</h4>
-      <div class="rating">
-        <i class="material-icons">star</i><i class="material-icons">star</i
-        ><i class="material-icons">star</i><i class="material-icons">star</i
-        ><i class="material-icons">star</i>
-      </div>
-      <p>
-        A fantastic house in a great location. The design and facilities are
-        top-notch, making it a perfect home for families.
-      </p>
-    </div>
-    <div class="review">
-      <h4>Sarah Wilson</h4>
-      <div class="rating">
-        <i class="material-icons">star</i><i class="material-icons">star</i
-        ><i class="material-icons">star</i><i class="material-icons">star</i
-        ><i class="material-icons">star</i>
-      </div>
-      <p>
-        I love the spacious layout and modern design. It's a beautiful house in
-        a convenient location. Highly recommended!
-      </p>
-    </div>
-  </div>
+  <div class="desc-child2 right-child"><h3>Customer Reviews</h3></div>
+</div>
 </div>
 <?php endif; ?>
 <?php if (!empty($house)): ?>

@@ -6,9 +6,9 @@
         <h1>Welcome to the Branighan Group Dashboard</h1>
         <p>Manage your properties, designs, and blog with ease.</p>
         <div class="quick-actions">
-            <button class="quick-action-btn"> Frontend Houses</button>
-            <button class="quick-action-btn">Frontend Designs</button>
-            <button class="quick-action-btn">Frontend Blogs</button>
+            <a href="https://branighangroup.com/houses"><button class="quick-action-btn">Frontend Houses </button></a>
+             <a href="https://branighangroup.com/designs"><button class="quick-action-btn">Frontend Designs</button></a>
+             <a href="https://branighangroup.com/blog"><button class="quick-action-btn">Frontend Blogs</button></a>
         </div>
         <div class="wave">
             

@@ -160,7 +160,7 @@ public function filter()
         // Verify that the name in the URL matches the actual name
         if (url_title($design['name'], '-', TRUE) !== $name) {
             // If the name in the URL doesn't match the actual name, redirect to the correct URL
-            return redirect()->to(site_url("show/{$id}/" . url_title($design['name'], '-', TRUE)));
+            return redirect()->to(site_url("design/view/{$id}/" . url_title($design['name'], '-', TRUE)));
         }
     
         // Prepare data to be passed to the view

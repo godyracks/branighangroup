@@ -20,7 +20,7 @@
       rel="stylesheet"
       href="<?= base_url('/public/styles/dashboard.css') ?>"
     />
-    <script src="https://cdn.ckeditor.com/ckeditor5/41.2.0/classic/ckeditor.js"></script>
+       <script src="https://cdn.ckeditor.com/ckeditor5/41.2.0/classic/ckeditor.js"></script>
  <style>
         #container {
             width: 800px;
@@ -31,7 +31,8 @@
             /* editing area */
             min-height: 300px;
         }
-    </style> 
+    </style>  
+
 </head>
 <body>
     <nav class="navbar">
@@ -46,7 +47,7 @@
         <ul class="nav-links">
             <li><a href="<?= base_url('/dashboard') ?>">Dashboard →</a></li>
             <li class="dropdown">
-                <a href="#">More</a>
+                <a href="#"><span class="material-icons">more_horiz</span></a>
                 <div class="dropdown-content">
                     <a href="<?= base_url('/dashboard/blog_management') ?>">Blog Management</a>
                     <a href="<?= base_url('/dashboard/user_management') ?>">User Management</a>
@@ -55,15 +56,12 @@
                     <a href="#">Guide</a>
                 </div>
             </li>
-            
+           
             <li><a href="<?= base_url('/dashboard/notifications') ?>"><i class="material-icons">notifications</i></a></li>
         </ul>
     </nav>
 
     <?php echo $this->renderSection('dash_content'); ?>
-
-
-    <script src="<?= base_url('/public/scripts/dashboard.js') ?>"></script>
     <script>
         ClassicEditor.create(document.querySelector('#description'))
             .then(editor => {
@@ -72,6 +70,17 @@
             .catch(error => {
                 console.error('There was an error initializing the editor:', error);
             });
+            
+             // Initialize CKEditor for design description
+        ClassicEditor.create(document.querySelector('#design-description'))
+            .then(editor => {
+                console.log('Design Description Editor was initialized', editor);
+            })
+            .catch(error => {
+                console.error('There was an error initializing the Design Description editor:', error);
+            });
     </script>
+
+    <script src="<?= base_url('/public/scripts/dashboard.js') ?>"></script>
 </body>
 </html>

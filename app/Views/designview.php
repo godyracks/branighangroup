@@ -48,7 +48,7 @@
             <div class="design-cards">
                 <?php foreach ($designs as $design) : ?>
                     <div class="design-card">
-                        <a href="<?= site_url("design/show/{$design['id']}/" . url_title($design['name'], '-', TRUE)) ?>">
+                        <a href="<?= site_url("design/view/{$design['id']}/" . url_title($design['name'], '-', TRUE)) ?>">
                             <img src="<?= base_url('public/' . $design['image1_url']) ?>" alt="<?= $design['name'] ?>">
                             <div class="design-card-info">
                                 <h4><?= $design['name'] ?></h4>
@@ -60,7 +60,7 @@
                                 echo "<p>{$limitedDescription}...</p>";
                                 ?>
                                 <div class="design-card-footer">
-                                    <span class="price"><?= $design['price'] ?></span>
+                                    <span class="price"><?= number_format($design['price'], 2) ?></span>
                                     <button class="design-buy-button">Buy</button>
                                 </div>
                             </div>
@@ -113,12 +113,12 @@
                                 const resultItem = document.createElement('div');
                                 resultItem.classList.add('design-search-result-item');
                                 resultItem.innerHTML = `
-                                    <a href="<?= base_url('design/show/') ?>${design.id}/${encodeURIComponent(design.name)}">
+                                    <a href="<?= base_url('design/view/') ?>${design.id}/${encodeURIComponent(design.name)}">
                                         <img src="<?= base_url('public/') ?>${design.image1_url}" alt="${design.name}">
                                         <div class="result-info">
                                             <h4>${design.name}</h4>
-                                            <p>${design.description}</p>
-                                            <span class="price">${design.price}</span>
+                                           
+                                            <p class="price">${design.price}.00</p>
                                         </div>
                                     </a>
                                 `;

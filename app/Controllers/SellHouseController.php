@@ -102,7 +102,7 @@ class SellHouseController extends Controller
             "Category ID: " . $data['category_id'] . "\n" .
             "Email: " . $data['email'] . "\n" .
             "Phone: " . $data['phone'] . "\n" .
-             "Check Admin Dashboard for Images:\n\n" 
+            "Check Admin Dashboard for Images:\n\n" 
         );
 
         if (!$email->send()) {

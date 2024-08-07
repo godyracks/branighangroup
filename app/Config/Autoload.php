@@ -85,7 +85,7 @@ class Autoload extends AutoloadConfig
      * @var list<string>
      */
     public $files = [
-        APPPATH . 'Libraries/vendor/autoload.php', //  the Composer autoloader is included for Libraries
+        APPPATH . 'Libraries/vendor/autoload.php', //  the Composer autoloader is included fot Libraries
     ];
 
     /**

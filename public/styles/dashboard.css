@@ -102,6 +102,11 @@ body {
         color: #110e0e;
         padding: 10px 15px;
     }
+    .tab-content .property-list{
+ 
+   
+    padding: 2px;
+}
 }
 
 
@@ -143,6 +148,20 @@ body {
 }
 
 .quick-action-btn:hover {
+    background-color: #034d53;
+}
+.btn-primary{
+    background-color: #090147;
+    border: 2px solid rgb(86, 86, 230);
+    border-radius: 12px;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1em;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+}
+.btn-primary:hover {
     background-color: #034d53;
 }
 

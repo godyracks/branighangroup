@@ -11,8 +11,8 @@ class GoogleApi
     public function __construct()
     {
         $this->client = new Client();
-        $this->client->setClientId('827758348721-jin605ivk47qavpv19g5hbvkktspoqbv.apps.googleusercontent.com');
-        $this->client->setClientSecret('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');
+        $this->client->setClientId('827758348721-utvai3fuca88hi0ulhdu9m7fn0179ju9.apps.googleusercontent.com');
+        $this->client->setClientSecret('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');
         $this->client->setRedirectUri('https://branighangroup.com/google-callback');
         $this->client->addScope('email');
         $this->client->addScope('profile');
