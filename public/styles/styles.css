@@ -139,7 +139,7 @@ input {
 }
 
 .main-content {
-  padding-top: 0;
+  padding-top: 70px;
 }
 .logo-container {
   margin-right: auto;
@@ -1259,23 +1259,38 @@ button {
 
   .footer-columns {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    /* flex-wrap: wrap;
+    justify-content: space-between; */
+    margin-left: 0;
+    margin-right: 0;
+    margin: 0;
   }
   .footer-column {
-    flex: 0 0 calc(50% - 10px);
+    flex: 0 0 calc(25% - 5px);
     margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
   }
-  footer {
+  .footer {
     background-color: var(--body-sec-bg-color);
-    padding: 2px;
+    padding: 10px;
+    margin-top: 10px;
+ margin-left: 0;
+ margin-right: 0;
+   
   }
   .footer-container,
   .footer-logo-social {
     margin: 0;
   }
+  .footer-container{
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+  }
   .footer-logo img {
-    width: 150px;
+    width: 200px;
+    height: auto;
   }
   .footer-social-icons {
     display: flex;
@@ -1293,14 +1308,16 @@ button {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: 9px;
+    font-size: 10px;
   }
   .footer-column li {
     margin-bottom: 5px;
+    font-size: 10px;
   }
   .footer-column li a {
     text-decoration: none;
     color: var(--btn-color);
+    font-size: 10px;
   }
   .footer-bottom {
     display: flex;
@@ -1311,29 +1328,34 @@ button {
   }
   .footer-bottom p {
     margin: 0;
+    font-size: 10px;
   }
   .footer-nav {
     display: flex;
+    flex-direction: row;
     gap: 5px;
     margin-top: 10px;
+    font-size: 10px;
+    
   }
 
   .newsletter-column {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .newsletter-container {
     display: flex;
-    width: auto;
+    width: 25%;
     margin-top: 10px;
   }
 
   .newsletter-input {
-    flex: 1;
+    /* flex: 1; */
     padding: 10px;
     font-size: 16px;
+    width: 100px;
     height: 10px;
     border: 1px solid #ccc;
     border-radius: 4px 0 0 4px;
