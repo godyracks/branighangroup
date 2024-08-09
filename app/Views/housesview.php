@@ -2,7 +2,7 @@
 <?= $this->section('content') ?>
 <main class="main-content">
     <div class="container">
-        <div class="left-part">
+        <div class="house-left-part">
             <nav class="house-nav">
                 <a href="<?= base_url('/') ?>">Home</a>&gt;
                 <a href="<?= base_url('houses') ?>">Houses in Kenya</a>&gt;
@@ -35,7 +35,7 @@
                 </div>
             </form>
         </div>
-        <div class="right-part">
+        <div class="house-right-part">
             <?php if (!empty($message)): ?>
                 <div class="message">
                     <p><?= $message ?></p>
@@ -53,7 +53,7 @@
                                     // Limit description to 20 words
                                     $description = $house['description'];
                                     $descriptionWords = explode(' ', $description);
-                                    $limitedDescription = implode(' ', array_slice($descriptionWords, 0, 18));
+                                    $limitedDescription = implode(' ', array_slice($descriptionWords, 0, 28));
                                     echo "<p>{$limitedDescription}...</p>";
                                     ?>
                                     <div class="card-footer">

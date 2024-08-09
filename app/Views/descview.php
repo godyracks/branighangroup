@@ -9,7 +9,7 @@
         <a href="<?= base_url('houses') ?>">Houses in Kenya</a>&gt; Available &gt;
         <?= $house['name'] ?>
         <?php elseif (!empty($design)): ?>
-          <a href="<?= base_url('designs') ?>">Designs</a>&gt;
+          <a href="<?= base_url('designs') ?>">Designs</a>&gt; Available &gt;
         <?= $design['name'] ?>
         <?php endif; ?>
       </nav>
