@@ -8,8 +8,8 @@
                 <a href="<?= base_url('houses') ?>">Houses in Kenya</a>&gt;
                 <span>Available</span>
             </nav>
-            <h2>Search</h2>
-            <p>Simply write the description of the house</p>
+            <h2>Search House</h2>
+            <p>Simply write the description of the house, scroll through results and press a result to view.</p>
             <div class="search-input3">
                 <input type="text" id="search" placeholder="1 bedroom cabin">
                 <i class="material-icons">search</i>

@@ -193,7 +193,8 @@
           </li> <?php endif; ?>
         </ul>
       </div>
-    </div> <?php echo $this->renderSection('content'); ?> <?= $this->include('partials/scroll-to-top') ?> <footer class="footer">
+    </div> <?php echo $this->renderSection('content'); ?> <?= $this->include('partials/scroll-to-top') ?> 
+    <footer class="footer">
       <div class="footer-container">
         <div class="footer-logo-social">
           <div class="footer-logo">
